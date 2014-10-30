@@ -6,8 +6,13 @@ p.jumbotron-small {
 
 /***GLOBAL***/
 
+html {
+	height: 100%;
+}
+
 body {
 	padding-bottom: 50px;
+	height: 100%;
 }
 
 a:hover {
@@ -55,16 +60,24 @@ a:hover {
 }
 
 #site-wrapper {
-	z-index: 9999px;
+	z-index: 9999;
 	background-color: #fff;
 }
 
 /***PANELS***/
 
+div.scotch-panel-wrapper {
+	overflow: visible;
+}
+
+#panel-profile, #panel-nav {
+	display: none;
+}
+
 #panel-profile-content {
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: -300px;
 	width: 300px;
 	height: 100%;
 	background-color: #333;
@@ -73,7 +86,7 @@ a:hover {
 #panel-nav-content {
 	position: fixed;
 	top: 0;
-	right: 0;
+	right: -300px;
 	width: 300px;
 	height: 100%;
 	background-color: #333;
