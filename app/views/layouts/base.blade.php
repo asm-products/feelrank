@@ -31,10 +31,11 @@
           <a class="navbar-brand" href="/"><img src="/img/feelrank-logo.png" alt="FeelRank" /></a>
         </div>
         
+        <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
+        
         @if (Auth::check())
 
           <button type="button" id="toggle-panel-profile" class="btn btn-default navbar-btn pull-left visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-user"></i></button>
-          <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
 
         @endif
 
@@ -136,8 +137,6 @@
 
     @yield('body')
 
-    @if (Auth::check())
-
       <div id="panel-nav" class="panel-slide panel-nav">
         <ul>
           <li class="dropdown-toggle">
@@ -158,6 +157,11 @@
               <li><a href="/posts/leastdiscussions">Discussions</a></li>
             </ul>
           </li>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/create">Signup</a></li>
+
+        @if (Auth::check())
+
           <li class="dropdown-toggle">
             My
 
@@ -169,7 +173,11 @@
               <li><a href="/users/{{ Auth::user()->id }}/downranks">Downranks</a></li>
             </ul>
           </li>
+
+        @endif
       </div>
+
+    @if (Auth::check())
 
       <div id="panel-profile" class="panel-slide panel-profile">
         <h1 class="text-center">{{ Auth::user()->username }}</h1>
