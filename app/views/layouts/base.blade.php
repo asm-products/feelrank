@@ -200,6 +200,14 @@
     {{ HTML::script('js/fastclick.js') }}
 
     <script>
+      // Hacky as hell, can do better.
+
+      $(function() {
+        $('.panel-slide').css('height', &(window).height())
+      });
+    </script>
+
+    <script>
       $(function() {
         FastClick.attach(document.body);
       });
@@ -226,6 +234,7 @@
         enableEscapeKey: true
       });
     </script>
+
     <script>
       $(function() {
         $('.dropdown-toggle').click(function() {
