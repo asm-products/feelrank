@@ -142,6 +142,9 @@
     @yield('body')
 
       <div id="panel-nav" class="panel-slide panel-nav">
+      </div>
+
+      <div id="panel-nav-content">
         <ul>
           <li class="dropdown-toggle">
             Most
@@ -164,26 +167,30 @@
           <li><a href="/users/login">Login</a></li>
           <li><a href="/users/create">Signup</a></li>
 
-        @if (Auth::check())
+          @if (Auth::check())
 
-          <li class="dropdown-toggle">
-            My
+            <li class="dropdown-toggle">
+              My
 
-            <ul class="dropdown-sidebar">
-              <li><a href="/users/{{ Auth::user()->id }}/posts">Posts</a></li>
-              <li><a href="/users/{{ Auth::user()->id }}/discussions">Discussions</a></li>
-              <li><a href="/users/{{ Auth::user()->id }}/comments">Comments</a></li>
-              <li><a href="/users/{{ Auth::user()->id }}/upranks">Upranks</a></li>
-              <li><a href="/users/{{ Auth::user()->id }}/downranks">Downranks</a></li>
-            </ul>
-          </li>
+              <ul class="dropdown-sidebar">
+                <li><a href="/users/{{ Auth::user()->id }}/posts">Posts</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}/discussions">Discussions</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}/comments">Comments</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}/upranks">Upranks</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}/downranks">Downranks</a></li>
+              </ul>
+            </li>
 
-        @endif
+          @endif
+        </ul>
       </div>
 
     @if (Auth::check())
 
       <div id="panel-profile" class="panel-slide panel-profile">
+      </div>
+
+      <div id="panel-profile-content">
         <h1 class="text-center">{{ Auth::user()->username }}</h1>
         <ul>
           <li><a href="/users/update">Profile</a></li>
