@@ -29,7 +29,7 @@
 					<div class="col-md-4">
 						<h1 class="text-center h1-icon"><i class="fa fa-line-chart"></i></h1>
 						<h4>Change Your Mind? Change Your Rank.</h4>
-						<p>Maybe that thing wasn't so cool--let us know! The ranks and discussions never stop changing.</p>
+						<p>Maybe that thing wasn't so cool after all--change its rank! Discussions and ranks never stop changing.</p>
 					</div>
 				</div>
 			</div>
