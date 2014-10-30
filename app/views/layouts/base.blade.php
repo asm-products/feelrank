@@ -200,8 +200,6 @@
     {{ HTML::script('js/fastclick.js') }}
 
     <script>
-      // Hacky as hell, can do better.
-
       $(function() {
         $('.panel-slide').css('height', $(window).height())
       });
@@ -220,7 +218,7 @@
         duration: 300,
         transition: 'ease',
         clickSelector: '#toggle-panel-nav',
-        distanceX: '50%',
+        distanceX: '300px',
         enableEscapeKey: true
       });
       
@@ -230,7 +228,7 @@
         duration: 300,
         transition: 'ease',
         clickSelector: '#toggle-panel-profile',
-        distanceX: '50%',
+        distanceX: '300px',
         enableEscapeKey: true
       });
     </script>
