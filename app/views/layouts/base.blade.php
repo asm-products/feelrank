@@ -121,6 +121,10 @@
       @endfor
     @endif
 
+    @if ($notice = Session::get('notice'))
+      <div class="alert alert-success">{{ $notice }}</div>
+    @endif
+
     @if (count($errors))
       <div class="alert alert-danger">{{ $errors->first() }}</div>
     @endif
