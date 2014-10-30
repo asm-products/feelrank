@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>FeelRank - Tell The Internet How You Feel</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="img/feelrank-logo.png" alt="FeelRank" /></a>
+        </div>
+
+        <button type="button" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Sign Up</button>
+        
+        <button type="button" id="toggle-panel-profile" class="btn btn-default navbar-btn pull-left visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-user"></i></button>
+        <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
+
+        <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container container-content">
+
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="container-post">
+            <div class="row">
+              <div class="col-xs-12">
+                <img class="pull-left thumbnail-post" src="img/gear.jpg" alt="Samsung Gear 2 Smartwatch - Silver/Black" />
+                <h3>Samsung Gear 2 Smartwatch - Silver/Black</h3>
+                <p>The Samsung Gear 2 is the smart companion watch tailored to your look and lifestyle. With real-time notifications, calls, fitness tracking and your music library right at our wrist, you can stay focused in the moment. No matter where your day takes y...</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <p class="pull-right">
+                  <a href="#">&#9733;</a> | <a href="#">20 Discussions</a>
+                </p>
+
+                <p class="pull-left">
+                  <a href="#"><i class="fa fa-chevron-up text-success"></i></a>
+                  &nbsp;1045&nbsp;
+                  <a href="#"><i class="fa fa-chevron-down text-danger"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+          <img class="img-responsive" src="img/comments.jpg" alt="Discussion" />
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <div id="panel-nav" class="panel-slide panel-nav">
+      <ul>
+        <li class="dropdown-toggle">
+          Most
+
+          <ul class="dropdown-sidebar">
+            <li>Rank</li>
+            <li>Recent</li>
+            <li>Comments</li>
+          </ul>
+        </li>
+        <li class="dropdown-toggle">
+          Least
+
+          <ul class="dropdown-sidebar">
+            <li>Rank</li>
+            <li>Recent</li>
+            <li>Comments</li>
+          </ul>
+        </li>
+        <li class="dropdown-toggle">
+          My
+
+          <ul class="dropdown-sidebar">
+            <li>Posts</li>
+            <li>Discussions</li>
+            <li>Comments</li>
+            <li>Upranks</li>
+            <li>Downranks</li>
+          </ul>
+        </li>
+    </div>
+
+    <div id="panel-profile" class="panel-slide panel-profile">
+      <img class="img-panel-profile img-thumbnail" src="img/user.jpg" alt="username" />
+      <ul>
+        <li>Profile</li>
+        <li>Settings</li>
+        <li>Logout</li>
+      </ul>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scotchPanels.min.js"></script>
+    <script>
+      $('#panel-nav').scotchPanel({
+        containerSelector: 'body',
+        direction: 'right',
+        duration: 300,
+        transition: 'ease',
+        clickSelector: '#toggle-panel-nav',
+        distanceX: '50%',
+        enableEscapeKey: true
+      });
+      
+      $('#panel-profile').scotchPanel({
+        containerSelector: 'body',
+        direction: 'left',
+        duration: 300,
+        transition: 'ease',
+        clickSelector: '#toggle-panel-profile',
+        distanceX: '50%',
+        enableEscapeKey: true
+      });
+    </script>
+    <script>
+      $(function() {
+        $('.dropdown-toggle').click(function() {
+          $(this).children('ul.dropdown-sidebar').slideToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

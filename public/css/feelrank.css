@@ -1,0 +1,127 @@
+/***UTILITY***/
+
+p.jumbotron-small {
+	font-size: 1em;
+}
+
+/***GLOBAL***/
+
+body {
+	padding-bottom: 50px;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+.navbar ul.nav li.active a {
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 10%, rgba(231,231,231,1) 50%, rgba(255,255,255,1) 90%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(255,255,255,1)), color-stop(50%,rgba(231,231,231,1)), color-stop(90%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar ul.nav li.open > a {
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 10%, rgba(231,231,231,1) 50%, rgba(255,255,255,1) 90%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(255,255,255,1)), color-stop(50%,rgba(231,231,231,1)), color-stop(90%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 10%,rgba(231,231,231,1) 50%,rgba(255,255,255,1) 90%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar {
+	box-shadow: none;
+}
+
+.alert {
+	width: 100%;
+	position: absolute;
+	top: 70px;
+	text-align: center;
+	z-index: 9999;
+}
+
+@media screen and (max-width: 992px) {
+	.navbar-brand {
+		top: 0;
+	}
+}
+
+/***PANELS***/
+
+.panel-slide {
+	height: 100%;
+}
+
+.scotch-panel-wrapper {
+	height: 100%;
+}
+
+/***HOME***/
+
+.jumbotron-home {
+	background: url('../img/typewriter-d.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 400px;
+	color: #fff;
+}
+
+.jumbotron-home h1 {
+	margin-top: 90px;
+	text-align: center;
+	text-shadow: 0 2px 5px #333;
+}
+
+.jumbotron-home p {
+	text-align: center;
+	text-shadow: 0 2px 3px #333;
+}
+
+.jumbotron-home p.lead {
+	font-weight: 500;
+}
+
+.jumbotron-home a.btn-success {
+	background: rgba(0,85,0,.5);
+	border-width: 3px;
+}
+
+.jumbotron-home a {
+	color: #fff;
+	font-weight: 500;
+}
+
+.h1-icon {
+	font-size: 3em;
+	margin-bottom: 20px;
+}
+
+.logo-home {
+	height: 120px;
+	margin-top: 60px;
+	margin-bottom: 10px;
+}
+
+/***POST - SHOW***/
+
+p.rank {
+	margin-top: 8px;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+/***COMMENTS***/
+
+.media-body > .media {
+	border-left: 1px solid #eee;
+	padding-left: 15px;
+}
