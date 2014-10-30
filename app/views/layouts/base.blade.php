@@ -22,6 +22,7 @@
   </head>
 
   <body>
+    <div id="site-wrapper">
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -141,10 +142,10 @@
 
     @yield('body')
 
-      <div id="panel-nav" class="panel-slide panel-nav">
+      <div id="panel-nav">
       </div>
 
-      <div id="panel-nav-content">
+      <div id="panel-nav-content" class="panel-slide panel-nav">
         <ul>
           <li class="dropdown-toggle">
             Most
@@ -187,10 +188,10 @@
 
     @if (Auth::check())
 
-      <div id="panel-profile" class="panel-slide panel-profile">
+      <div id="panel-profile">
       </div>
 
-      <div id="panel-profile-content">
+      <div id="panel-profile-content" class="panel-slide panel-profile">
         <h1 class="text-center">{{ Auth::user()->username }}</h1>
         <ul>
           <li><a href="/users/update">Profile</a></li>
@@ -199,6 +200,8 @@
       </div>
 
     @endif
+
+  </div><!--end wrapper-->
 
     {{ HTML::script('http://code.jquery.com/jquery-1.11.1.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}

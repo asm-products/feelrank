@@ -54,6 +54,11 @@ a:hover {
 	}
 }
 
+#site-wrapper {
+	z-index: 9999px;
+	background-color: #fff;
+}
+
 /***PANELS***/
 
 #panel-profile-content {
