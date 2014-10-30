@@ -203,7 +203,7 @@
       // Hacky as hell, can do better.
 
       $(function() {
-        $('.panel-slide').css('height', &(window).height())
+        $('.panel-slide').css('height', $(window).height())
       });
     </script>
 
