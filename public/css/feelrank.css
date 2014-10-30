@@ -67,7 +67,7 @@ a:hover {
 /***PANELS***/
 
 div.scotch-panel-wrapper {
-	overflow: visible;
+	overflow: visible !important;
 }
 
 #panel-profile, #panel-nav {
