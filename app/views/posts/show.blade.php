@@ -17,7 +17,7 @@
                 @if ($post->thumbnail != null)
                   <img class="pull-left thumbnail-post" src="{{ urldecode($post->thumbnail) }}" alt="Samsung Gear 2 Smartwatch - Silver/Black" />
                 @endif
-                <a href="/posts/{{ $post->id }}"><h3>{{ $post->title }}</h3></a>
+                <a href="{{ urldecode($post->url) }}" target="_blank"><h3>{{ $post->title }}</h3></a>
                 <p>{{ $post->description }}</p>
               </div>
             </div>
