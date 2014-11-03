@@ -55,9 +55,11 @@
         </div>
 
         @if ($post->ranks()->count() > 1)
-          @include('partials.posts.history', ['rankCurrent' => $post->ranks()->sum('vote')])
+          @include('partials.posts.history')
         @endif
       </div>
+
+      <br />
 
       <div class="row">
         @if (Auth::check())
@@ -69,7 +71,7 @@
                 {{ Form::text('title', '', ['class' => 'form-control']) }}
               </div>
 
-              {{ Form::hidden('post_id', $post->first()->id) }}
+              {{ Form::hidden('post_id', $post->id) }}
 
               {{ Form::submit('Discuss', ['class' => 'btn btn-default']) }}
             {{ Form::close() }}

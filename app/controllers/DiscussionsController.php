@@ -1,25 +1,24 @@
 <?php
 
-use FeelRank\Services\DisqusService;
+use FeelRank\Services\DiscussionService;
 
 class DiscussionsController extends BaseController {
 
-	public function __construct(DisqusService $disqusService)
+	public function __construct(DiscussionService $discussionService)
 	{
-		$this->disqusService = $disqusService;
+		$this->DiscussionService = $discussionService;
 	}
 
 	public function store()
 	{
-		$input = Input::all();
-
-		$discussion = new Discussion();
-
-		$discussion->post_id = $input['post_id'];
-		$discussion->title = $input['title'];
-		$discussion->user_id = Auth::user()->id;
-
-		Post::find($input['post_id'])->discussions()->save($discussion);
+		try
+		{
+			$discussion = $this->DiscussionService->create(Input::all());
+		}
+		catch (FeelRank\Validators\ValidationException $e)
+		{
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
 
 		return Redirect::to('discussions/' . $discussion->id);
 	}

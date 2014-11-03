@@ -58,12 +58,14 @@ class PostsController extends BaseController {
 	{
 		$post = Post::with('discussions', 'ranks')->find($id);
 		
-		$post_history = Rank::where('rankable_id', '=', $id)->orderBy('created_at', 'ASC')->take(20)->get();
-		$post_history->reverse();
+		$post_history = Rank::where('rankable_id', '=', $id)->orderBy('created_at', 'DESC')->take(20)->get();
 
 		$post_rank = $post->ranks->sum('vote');
+		unset($post_history[0]);
 
-		return View::make('posts.show', compact('post', 'post_history', 'post_rank'));
+		$original_rank = $post_rank;
+
+		return View::make('posts.show', compact('post', 'post_history', 'post_rank', 'original_rank'));
 	}
 
 	// Sorting
@@ -133,15 +135,14 @@ class PostsController extends BaseController {
 
 	// History
 
-	public function getHistory()
+	/*public function getHistory()
 	{
 		$input = Input::all();
 
 		$post_history = Rank::where('rankable_id', '=', $input['id'])->orderBy('created_at', 'ASC')->take(20)->get();
-		$post_history->reverse();
 
 		$post_rank = $input['post_rank'];
 
 		return View::make('posts.history', compact('post_history', 'post_rank'));
-	}
+	}*/
 }

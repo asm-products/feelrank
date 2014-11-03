@@ -5,13 +5,16 @@
   <input type="hidden" value="{{ $post_rank }}" name="post_rank" id="post_rank" />
 </div>
 
-    {{ HTML::script('js/Chart.Core.js') }}
-    {{ HTML::script('js/Chart.Line.js') }}
+  {{ HTML::script('js/Chart.Core.js') }}
+  {{ HTML::script('js/Chart.Line.js') }}
+
 <script>
 var ctx = document.getElementById('rank-history').getContext('2d');
 
 var data = {
   labels: [
+    'NOW',
+
     @foreach($post_history as $rank)
       '{{ date("g:i", strtotime($rank->created_at)) }}',
     @endforeach
@@ -20,8 +23,10 @@ var data = {
     {
       label: 'rank',
       data: [
+        '{{ $original_rank }}',
+
         @foreach($post_history as $rank)
-          '{{ $post_rank += $rank->vote }}',
+          '{{ $post_rank += $rank->vote; }}',
         @endforeach
       ]
     }
@@ -29,6 +34,7 @@ var data = {
 };
 
 data.datasets[0].data.reverse();
+data.labels.reverse();
 
 var options = {
   responsive: true

@@ -28,7 +28,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <p class="pull-right">
-                  <a href="#">{{ $post->discussions->count() }} Discussions</a>
+                  <a href="/posts/{{ $post->id }}">{{ $post->discussions->count() }} Discussions</a>
                 </p>
 
                 <p id="post-ranks-{{ $post->id }}" class="pull-left">

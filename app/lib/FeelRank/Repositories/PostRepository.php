@@ -4,8 +4,6 @@ use DB;
 use Post;
 use \Auth;
 use \FeelRank\Services\Url64Service;
-use \FeelRank\Validators\PostValidator;
-use \FeelRank\Validators\FetchValidator;
 
 class PostRepository {
 
@@ -13,11 +11,9 @@ class PostRepository {
 	// when used with groupBy. Change to use
 	// Paginator::make() in the Controller.
 
-	public function __construct(Url64Service $url64Service, FetchValidator $fetchValidator, PostValidator $postValidator)
+	public function __construct(Url64Service $url64Service)
 	{
 		$this->Url64Service = $url64Service;
-		$this->FetchValidator = $fetchValidator;
-		$this->PostValidator = $postValidator;
 	}
 	
 	public function mostRank()
