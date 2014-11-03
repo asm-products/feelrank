@@ -6,7 +6,14 @@ class Url64Service {
 	{
 	    $url = parse_url(strtolower($url));
 	 
-	    $canonic = $url['host'] . $url['path'];
+	 	if(isset($url['path']))
+	 	{
+		    $canonic = $url['host'] . $url['path'];
+	 	}
+	 	else
+	 	{
+	 		$canonic = $url['host'];
+	 	}
 	 
 	    if (isset($url['query']))
 	    {
