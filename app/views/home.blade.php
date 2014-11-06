@@ -32,6 +32,10 @@
 						<p>Maybe that thing wasn't so cool after all--change its rank! Discussions and ranks never stop changing.</p>
 					</div>
 				</div>
+
+				<div class="row">
+					<h1></h1>
+				</div>
 			</div>
 		</div>
 	</div>
