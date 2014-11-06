@@ -15,8 +15,26 @@ body {
 	height: 100%;
 }
 
+a {
+	color: #f8694d;
+}
+
+a:hover {
+	color: #f88b76;
+}
+
 a:hover {
 	cursor: pointer;
+}
+
+.navbar-default {
+	background-color: #f8694d;
+}
+
+.btn-default {
+	color: #fff;
+	background-color: #f8694d;
+	border-color: #fff;
 }
 
 .navbar ul.nav li.active a {
