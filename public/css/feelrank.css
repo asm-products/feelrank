@@ -37,6 +37,16 @@ a:hover {
 	border-color: #fff;
 }
 
+.btn-default:hover. .btn-default:focus {
+	color: #fff;
+	background-color: #f8694d;
+	border-color: #fff;
+}
+
+.navbar ul.nav li a, .navbar ul.nav li a:hover {
+	color: #fff;
+}
+
 .navbar ul.nav li.active a {
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 10%, rgba(231,231,231,1) 50%, rgba(255,255,255,1) 90%); /* FF3.6+ */
