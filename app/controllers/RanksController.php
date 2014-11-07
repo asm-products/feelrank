@@ -25,7 +25,7 @@ class RanksController extends BaseController {
 
 			return View::make('partials.posts.uprank', compact('post'));
 		}
-
+		
 		$rank->vote = 1;
 		$rank->save();
 

@@ -20,4 +20,9 @@ class Post extends Eloquent
 	{
 		return $this->morphMany('Rank', 'rankable');
 	}
+
+	public function tags()
+	{
+		return $this->morphToMany('Tag', 'taggable');
+	}
 }

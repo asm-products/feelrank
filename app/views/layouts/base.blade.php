@@ -11,6 +11,7 @@
     <title>feelrank - Let The Internet Know How You Feel</title>
 
     {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('css/jquery.tagsinput.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/feelrank.css') }}
 
@@ -47,6 +48,7 @@
           <a href="/users/create" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Sign Up</a>
 
           <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
+            <li><a href="/tags/search">Tags</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
 
@@ -73,6 +75,7 @@
         @else
 
           <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
+            <li><a href="/tags">Tags</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
 
@@ -149,6 +152,11 @@
 
       <div id="panel-nav-content" class="panel-slide panel-nav">
         <ul>
+          @if (Auth::check())
+            <li><a href="/tags">Tags</a></li>
+          @else
+            <li><a href="/tags/search">Tags</a></li>
+          @endif
           <li class="dropdown-toggle">
             Most
 
@@ -167,8 +175,10 @@
               <li><a href="/posts/leastdiscussions">Discussions</a></li>
             </ul>
           </li>
-          <li><a href="/users/login">Login</a></li>
-          <li><a href="/users/create">Signup</a></li>
+          @if (!Auth::check())
+            <li><a href="/users/login">Login</a></li>
+            <li><a href="/users/create">Signup</a></li>
+          @endif
 
           @if (Auth::check())
 
@@ -205,7 +215,8 @@
 
   </div><!--end wrapper-->
 
-    {{ HTML::script('http://code.jquery.com/jquery-1.11.1.min.js') }}
+    {{-- HTML::script('http://code.jquery.com/jquery-1.11.1.min.js') --}}
+    {{ HTML::script('js/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/intercooler-0.4.1.min.js') }}
     {{ HTML::script('js/scotchPanels.min.js') }}

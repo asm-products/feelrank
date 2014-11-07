@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnUserIdToTableDiscussions extends Migration {
+class CreateTableTagUser extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,13 @@ class AddColumnUserIdToTableDiscussions extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('discussions', function(Blueprint $table)
+		Schema::create('tag_user', function(Blueprint $table)
 		{
+			$table->integer('tag_id')->unsigned();
+			$table->foreign('tag_id')->references('id')->on('tags');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->timestamps();
 		});
 	}
 
@@ -26,10 +29,7 @@ class AddColumnUserIdToTableDiscussions extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('discussions', function(Blueprint $table)
-		{
-			$table->dropColumn('user_id');
-		});
+		Schema::drop('tag_user');
 	}
 
 }

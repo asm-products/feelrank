@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddColumnUserIdToTableDiscussions' => $baseDir . '/app/database/migrations/2014_10_06_032638_add_column_user_id_to_table_discussions.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -34,8 +33,12 @@ return array(
     'ConfideSetupUsersTable' => $baseDir . '/app/database/migrations/2014_09_07_235153_confide_setup_users_table.php',
     'CreateTableComments' => $baseDir . '/app/database/migrations/2014_09_23_171207_create_table_comments.php',
     'CreateTableDiscussions' => $baseDir . '/app/database/migrations/2014_09_10_194957_create_table_discussions.php',
+    'CreateTableFlags' => $baseDir . '/app/database/migrations/2014_11_07_014052_create_table_flags.php',
     'CreateTablePosts' => $baseDir . '/app/database/migrations/2014_09_08_224807_create_table_posts.php',
     'CreateTableRanks' => $baseDir . '/app/database/migrations/2014_09_23_171144_create_table_ranks.php',
+    'CreateTableTagUser' => $baseDir . '/app/database/migrations/2014_11_07_040147_create_table_tag_user.php',
+    'CreateTableTaggables' => $baseDir . '/app/database/migrations/2014_11_07_185005_create_table_taggables.php',
+    'CreateTableTags' => $baseDir . '/app/database/migrations/2014_11_07_013615_create_table_tags.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
     'Crypt_Blowfish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',
@@ -55,7 +58,7 @@ return array(
     'FeelRank\\Connectors\\EmbedlyConnector' => $baseDir . '/app/lib/FeelRank/Connectors/EmbedlyConnector.php',
     'FeelRank\\Repositories\\DiscussionRepository' => $baseDir . '/app/lib/FeelRank/Repositories/DiscussionRepository.php',
     'FeelRank\\Repositories\\PostRepository' => $baseDir . '/app/lib/FeelRank/Repositories/PostRepository.php',
-    'FeelRank\\Repositories\\PosthistRepository' => $baseDir . '/app/lib/FeelRank/Repositories/PosthistRepository.php',
+    'FeelRank\\Repositories\\TagRepository' => $baseDir . '/app/lib/FeelRank/Repositories/TagRepository.php',
     'FeelRank\\Services\\DiscussionService' => $baseDir . '/app/lib/FeelRank/Services/DiscussionService.php',
     'FeelRank\\Services\\DisqusService' => $baseDir . '/app/lib/FeelRank/Services/DisqusService.php',
     'FeelRank\\Services\\PostService' => $baseDir . '/app/lib/FeelRank/Services/PostService.php',
@@ -1853,6 +1856,8 @@ return array(
     'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/Writer/TranslationWriter.php',
     'System_SSH_Agent' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
+    'Tag' => $baseDir . '/app/models/Flag.php',
+    'TagsController' => $baseDir . '/app/controllers/TagsController.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'UpranksController' => $baseDir . '/app/controllers/UpranksController.php',
     'User' => $baseDir . '/app/models/User.php',

@@ -4,16 +4,18 @@ use FeelRank\Connectors\EmbedlyConnector;
 use FeelRank\Services\Url64Service;
 use FeelRank\Services\PostService;
 use FeelRank\Repositories\PostRepository;
+use FeelRank\Repositories\TagRepository;
 
 use FeelRank\Validators\FetchValidator;
 use FeelRank\Validators\PostValidator;
 
 class PostsController extends BaseController {
 
-	public function __construct(EmbedlyConnector $embedlyConnector, Url64Service $url64Service, PostRepository $postRepository, PostService $postService)
+	public function __construct(EmbedlyConnector $embedlyConnector, Url64Service $url64Service, PostRepository $postRepository, TagRepository $tagRepository, PostService $postService)
 	{
 		$this->EmbedlyConnector = $embedlyConnector;
 		$this->PostRepository = $postRepository;
+		$this->TagRepository = $tagRepository;
 		$this->PostService = $postService;
 	}
 
@@ -32,6 +34,8 @@ class PostsController extends BaseController {
 		{
 			return Redirect::back()->withInput()->withErrors($e->getErrors());
 		}
+
+		$this->TagRepository->create(Input::get('tags'), $post);
 
 		return Redirect::to('posts/' . $post->id);
 	}
@@ -56,12 +60,17 @@ class PostsController extends BaseController {
 
 	public function show($id)
 	{
-		$post = Post::with('discussions', 'ranks')->find($id);
+		$post = Post::with('discussions', 'ranks', 'tags')->find($id);
 		
 		$post_history = Rank::where('rankable_id', '=', $id)->orderBy('created_at', 'DESC')->take(20)->get();
 
-		$post_rank = $post->ranks->sum('vote');
-		unset($post_history[0]);
+		$post_rank = 0;
+
+		if($post->ranks->count() > 0)
+		{
+			$post_rank = $post->ranks->sum('vote');
+			unset($post_history[0]);
+		}
 
 		$original_rank = $post_rank;
 
@@ -133,16 +142,24 @@ class PostsController extends BaseController {
 		return 	View::make('posts.showlist', compact('posts', 'sort'));
 	}
 
-	// History
-
-	/*public function getHistory()
+	public function taggedPost($id)
 	{
-		$input = Input::all();
+		$posts = $this->PostRepository->getTagged($id);
 
-		$post_history = Rank::where('rankable_id', '=', $input['id'])->orderBy('created_at', 'ASC')->take(20)->get();
+		$sort = 'Tagged: ' . Tag::where('id', '=', $id)->first()->name;
 
-		$post_rank = $input['post_rank'];
+		return 	View::make('posts.showlist', compact('posts', 'sort'));
+	}
 
-		return View::make('posts.history', compact('post_history', 'post_rank'));
-	}*/
-}
+	public function taggedPosts()
+	{
+		return 	View::make('posts.showlist', compact('posts'));
+	}
+
+	public function getTags()
+	{
+		$tags = $this->TagRepository->search(Input::get('search'));
+
+		return View::make('tags.search', compact('tags'));
+	}
+}	

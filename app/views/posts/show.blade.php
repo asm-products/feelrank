@@ -19,6 +19,17 @@
                 @endif
                 <a href="{{ urldecode($post->url) }}" target="_blank"><h3>{{ $post->title }}</h3></a>
                 <p>{{ $post->description }}</p>
+                <p>
+                  Tags:
+
+                  @if($post->tags->count() > 0)
+                    @foreach ($post->tags as $tag)
+                      <a href="/tags/{{ $tag->id }}">{{ $tag->name }}</a>&nbsp;
+                    @endforeach
+                  @else
+                    No tags!
+                  @endif
+                </p>
               </div>
             </div>
 

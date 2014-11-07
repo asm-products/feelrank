@@ -59,6 +59,10 @@ a:hover {
 	color: #fff;
 }
 
+.navbar .dropdown-menu {
+	border: none;
+}
+
 .navbar .dropdown-menu a {
 	color: #000 !important;
 	text-decoration: none !important;
@@ -70,10 +74,12 @@ a:hover {
 
 .navbar ul.nav li.active a {
 	text-decoration: underline;
+	background-color: #f8694d;
 }
 
 .navbar ul.nav li.open > a {
 	text-decoration: underline;
+	background-color: #f8694d;
 }	
 
 .navbar {

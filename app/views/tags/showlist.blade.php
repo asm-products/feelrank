@@ -5,9 +5,23 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <h2>Posts <small>({{ $sort }})</small></h2>
+        <h2>
+          {{ $qTag->name }}
+
+          <small>(
+            @if (Auth::check())
+              @if (Auth::user()->tags->contains($qTag->id))
+                <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/remove" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Remove</a></span>
+              @else
+                <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/save" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Save</a></span>
+              @endif
+            @endif
+          )</small>
+        </h2>
       </div>
     </div>
+
+    <br />
 
     <div class="row">
 

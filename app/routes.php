@@ -48,6 +48,15 @@ Route::get('posts/{id}/ranks/down', ['uses' => 'RanksController@downrank_post'])
 
 Route::resource('posts', 'PostsController');
 
+// Tags
+Route::get('tags/search', ['uses' => 'TagsController@search']);
+Route::post('tags/search', ['uses' => 'TagsController@doSearch']);
+Route::get('tags/{id}', ['uses' => 'TagsController@taggedPost']);
+Route::get('tags/{id}/save', ['uses' => 'TagsController@save']);
+Route::get('tags/{id}/remove', ['uses' => 'TagsController@remove']);
+Route::get('tags/{id}/get', ['uses' => 'TagsController@getTaggedPosts']);
+Route::get('tags', ['uses' => 'TagsController@taggedPosts']);
+
 // Post History
 Route::get('posts/{id}/history', ['uses' => 'PostsController@get_history']);
 

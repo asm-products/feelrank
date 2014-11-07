@@ -2,6 +2,7 @@
 
 use DB;
 use Post;
+use Tag;
 use \Auth;
 use \FeelRank\Services\Url64Service;
 
@@ -69,10 +70,20 @@ class PostRepository {
 		$post->title = $input['title'];
 		$post->source = $input['source'];
 		$post->description = $input['description'];
-		$post->thumbnail = urlencode($input['thumbnail']);
+		$post->thumbnail = '';
+
+		if(isset($input['thumbnail']))
+		{
+			$post->thumbnail = urlencode($input['thumbnail']);
+		}
 
 		Auth::user()->posts()->save($post);
 
 		return $post;
+	}
+
+	public function getTagged($id)
+	{
+		return \Tag::find($id)->posts;
 	}
 }
