@@ -161,7 +161,9 @@
 
                         <div id="reply-to-{{ $comment_child->id }}"></div>@endif
 
-                        <div class="media" ic-verb="get" ic-src="/comments/{{ $comment_child->id }}/replies" ic-trigger-on="click"><a>...More Replies</a></div>
+                        @if ($commend_child->children->count() > 0)
+                          <div class="media" ic-verb="get" ic-src="/comments/{{ $comment_child->id }}/replies" ic-trigger-on="click"><a>...More Replies</a></div>
+                        @endif
                       </div>
                     </div>
                   @endforeach
