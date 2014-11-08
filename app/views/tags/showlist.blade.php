@@ -8,15 +8,17 @@
         <h2>
           {{ $qTag->name }}
 
-          <small>(
+          <small>
             @if (Auth::check())
+              (
               @if (Auth::user()->tags->contains($qTag->id))
                 <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/remove" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Remove</a></span>
               @else
                 <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/save" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Save</a></span>
               @endif
+              )
             @endif
-          )</small>
+          </small>
         </h2>
       </div>
     </div>

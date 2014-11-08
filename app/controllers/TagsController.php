@@ -36,14 +36,18 @@ class TagsController extends BaseController {
 
 	public function search()
 	{
-		return View::make('tags.search');
+		$tags = $this->TagRepository->recentTags();
+
+		return View::make('tags.search', compact('tags'));
 	}
 
 	public function doSearch()
 	{
-		$tags = $this->TagRepository->search(Input::get('search'));
+		$query = Input::get('search');
 
-		return View::make('tags.results', compact('tags'));
+		$tags = $this->TagRepository->search($query);
+
+		return View::make('tags.results', compact('tags', 'query'));
 	}
 
 	public function save($id)

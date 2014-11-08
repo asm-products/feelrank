@@ -7,10 +7,10 @@
       <div class="col-xs-12">
         <h2 class="pull-left">Tags</h2>
 
-        {{ Form::open(['url' => 'tags/search', 'method' => 'post', 'class' => 'form-inline pull-right', 'style' => 'margin-top: 20px;']) }}
+        {{ Form::open(['url' => 'tags/search', 'method' => 'post', 'class' => 'form-inline pull-right form-float']) }}
           <div class="form-group">
-            {{ Form::label('search', 'Search') }}
-            {{ Form::text('search', '', ['class' => 'form-control', 'placeholder' => 'Tag name...']) }}
+            {{ Form::label('search', 'Search', ['class' => 'sr-only']) }}
+            {{ Form::text('search', '', ['class' => 'form-control', 'placeholder' => 'Search Tags']) }}
           </div>
 
           {{ Form::submit('Search', ['class' => 'btn btn-default']) }}

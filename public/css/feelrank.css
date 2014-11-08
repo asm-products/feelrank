@@ -105,6 +105,10 @@ a:hover {
 	background-color: #fff;
 }
 
+.form-float {
+	margin-top: 20px;
+}
+
 /***PANELS***/
 
 div.scotch-panel-wrapper {

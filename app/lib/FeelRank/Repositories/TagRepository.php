@@ -49,4 +49,11 @@ class TagRepository {
 
 		return $tag;
 	}
+
+	public function recentTags()
+	{
+		$tags = Tag::orderBy('created_at')->paginate(12);
+
+		return $tags;
+	}
 }
