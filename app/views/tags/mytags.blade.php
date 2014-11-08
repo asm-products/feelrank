@@ -37,6 +37,7 @@
 
           <br />
 
+          @if($posts !== '')
           <!-- Tab panes -->
           <div class="tab-content">
 
@@ -164,6 +165,7 @@
             @endfor
 
           </div>
+          @endif
         @endif
       </div>
     </div>

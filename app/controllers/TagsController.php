@@ -26,10 +26,10 @@ class TagsController extends BaseController {
 
 		if (count($tags) > 0)
 		{
-			$firstId = $tags->first()->id;
+			$posts = $tags->first()->posts;
 		}
 
-		$posts = Tag::find(1)->posts;
+		$posts = '';
 
 		return 	View::make('tags.mytags', compact('tags', 'posts'));
 	}
