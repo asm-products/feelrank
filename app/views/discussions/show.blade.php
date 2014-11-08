@@ -108,7 +108,7 @@
 
               <p id="comm-ranks-{{ $comment->id }}" class="pull-right">
                 @if (Auth::check())
-                  @if (is_null($previous_rank = $post->ranks()->previousRank(Auth::user()->id)->first()))
+                  @if (is_null($previous_rank = $comment->ranks()->previousRank(Auth::user()->id)->first()))
                     @include('partials.comments.norank')
                   @else
 
