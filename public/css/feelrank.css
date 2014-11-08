@@ -109,6 +109,7 @@ a:hover {
 
 div.scotch-panel-wrapper {
 	overflow: visible !important;
+	padding-bottom: 50px;
 }
 
 #panel-profile, #panel-nav {
