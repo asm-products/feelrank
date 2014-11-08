@@ -55,7 +55,7 @@
       <p id="diss-ranks-{{ $discussion->id }}" class="pull-left" style="margin-top: -40px;">
 
         @if (Auth::check())
-          @if (is_null($previous_rank = $post->ranks()->previousRank(Auth::user()->id)->first()))
+          @if (is_null($previous_rank = $discussion->ranks()->previousRank(Auth::user()->id)->first()))
             @include('partials.discussions.norank')
           @else
 
@@ -140,7 +140,7 @@
 
                         <p id="comm-ranks-{{ $comment->id }}" class="pull-right">
                           @if (Auth::check())
-                            @if (is_null($previous_rank = $post->ranks()->previousRank(Auth::user()->id)->first()))
+                            @if (is_null($previous_rank = $comment_child->ranks()->previousRank(Auth::user()->id)->first()))
                               @include('partials.comments.children.norank')
                             @else
 
