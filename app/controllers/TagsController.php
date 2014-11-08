@@ -24,12 +24,12 @@ class TagsController extends BaseController {
 	{
 		$tags = Auth::user()->tags;
 
+		$posts = '';
+
 		if (count($tags) > 0)
 		{
 			$posts = $tags->first()->posts;
 		}
-
-		$posts = '';
 
 		return 	View::make('tags.mytags', compact('tags', 'posts'));
 	}
