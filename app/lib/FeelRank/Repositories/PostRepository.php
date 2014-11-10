@@ -70,7 +70,7 @@ class PostRepository {
 		$post->title = $input['title'];
 		$post->source = $input['source'];
 		$post->description = $input['description'];
-		$post->thumbnail = '';
+		$post->thumbnail = NULL;
 
 		if(isset($input['thumbnail']))
 		{

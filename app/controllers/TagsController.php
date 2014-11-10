@@ -70,4 +70,4 @@ class TagsController extends BaseController {
 
 		return View::make('tags.partials.posts', compact('posts'));
 	}
-}	
+}
