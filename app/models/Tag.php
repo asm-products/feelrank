@@ -14,7 +14,7 @@ class Tag extends Eloquent
     	return $this->morphMany('Flag', 'flaggable');
     }
 
-    public function users()
+    public function followers()
     {
     	return $this->belongsToMany('User');
     }

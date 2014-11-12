@@ -23,4 +23,9 @@ class Discussion extends Eloquent
 	{
 		return $this->hasMany('Comment');
 	}
+
+	public function followers()
+	{
+		return $this->belongsToMany('User');
+	}
 }

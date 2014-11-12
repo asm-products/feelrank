@@ -18,4 +18,26 @@ class DiscussionRepository {
 
 		return $discussion;
 	}
+
+	public function follow($id)
+	{
+		$discussion = Discussion::find($id);
+		$user = Auth::user();
+
+		$user->followedDiscussions()->attach($discussion);
+		$user->save();
+
+		return $discussion;
+	}
+
+	public function unfollow($id)
+	{
+		$discussion = Discussion::find($id);
+		$user = Auth::user();
+
+		$user->followedDiscussions()->detach($discussion);
+		$user->save();
+
+		return $discussion;
+	}
 }

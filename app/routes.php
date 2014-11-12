@@ -16,6 +16,19 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+Route::get('/home', function()
+{
+	$user = Auth::user();
+
+	$tags = $user->followedTags;
+
+	$posts = $user->followedPosts;
+
+	$discussions = $user->followedDiscussions;
+
+	return View::make('dashboard', compact('tags', 'posts', 'discussions'));
+});
+
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');
@@ -40,6 +53,8 @@ Route::get('posts/mostdiscussions', ['uses' => 'PostsController@mostDiscussions'
 Route::get('posts/leastdiscussions', ['uses' => 'PostsController@leastDiscussions']);
 Route::get('posts/mostrecent', ['uses' => 'PostsController@mostRecent']);
 Route::get('posts/leastrecent', ['uses' => 'PostsController@leastRecent']);
+Route::get('posts/{id}/follow', ['uses' => 'PostsController@follow']);
+Route::get('posts/{id}/unfollow', ['uses' => 'PostsController@unfollow']);
 
 Route::get('users/{id}/posts', ['uses' => 'PostsController@userPosts']);
 
@@ -52,8 +67,8 @@ Route::resource('posts', 'PostsController');
 Route::get('tags/search', ['uses' => 'TagsController@search']);
 Route::post('tags/search', ['uses' => 'TagsController@doSearch']);
 Route::get('tags/{id}', ['uses' => 'TagsController@taggedPost']);
-Route::get('tags/{id}/save', ['uses' => 'TagsController@save']);
-Route::get('tags/{id}/remove', ['uses' => 'TagsController@remove']);
+Route::get('tags/{id}/follow', ['uses' => 'TagsController@follow']);
+Route::get('tags/{id}/unfollow', ['uses' => 'TagsController@unfollow']);
 Route::get('tags/{id}/get', ['uses' => 'TagsController@getTaggedPosts']);
 Route::get('tags', ['uses' => 'TagsController@taggedPosts']);
 
@@ -74,6 +89,9 @@ Route::get('discussions/{id}/ranks/up', ['uses' => 'RanksController@uprank_discu
 Route::get('discussions/{id}/ranks/down', ['uses' => 'RanksController@downrank_discussion']);
 Route::get('discussions/{id}', ['uses' => 'DiscussionsController@show']);
 Route::get('users/{id}/discussions', ['uses' => 'DiscussionsController@userDiscussions']);
+Route::get('discussions/{id}/follow', ['uses' => 'DiscussionsController@follow']);
+Route::get('discussions/{id}/unfollow', ['uses' => 'DiscussionsController@unfollow']);
+
 
 // Comments
 Route::post('{id}/comments/store', ['uses' => 'CommentsController@store']);

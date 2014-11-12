@@ -10,13 +10,11 @@
 
           <small>
             @if (Auth::check())
-              (
-              @if (Auth::user()->tags->contains($qTag->id))
-                <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/remove" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Remove</a></span>
+              @if (Auth::user()->followedTags->contains($qTag->id))
+                <span id="follow-tag-{{ $qTag->id }}"><a class="btn btn-success btn-sm" href="#" ic-src="/tags/{{ $qTag->id }}/unfollow" ic-trigger-on="click" ic-target="#follow-tag-{{ $qTag->id }}"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>
               @else
-                <span id="save-tag-{{ $qTag->id }}"><a href="#" ic-src="/tags/{{ $qTag->id }}/save" ic-trigger-on="click" ic-target="#save-tag-{{ $qTag->id }}">Save</a></span>
+                <span id="follow-tag-{{ $qTag->id }}"><a class="btn btn-default btn-sm" href="#" ic-src="/tags/{{ $qTag->id }}/follow" ic-trigger-on="click" ic-target="#follow-tag-{{ $qTag->id }}"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>
               @endif
-              )
             @endif
           </small>
         </h2>

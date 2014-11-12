@@ -39,20 +39,28 @@ a:hover {
 
 .navbar .btn-default:hover, .navbar .btn-default:focus {
 	color: #fff;
-	background-color: #f8694d;
+	background-color: #f88b76;
 	border: 1px solid #fff;
 }
 
 .btn-default {
 	color: #fff;
 	background-color: #f8694d;
-	border: none;
+	border-color: #f8694d;
 }
 
 .btn-default:hover, .btn-default:focus {
 	color: #fff;
-	background-color: #f8694d;
-	border: none;
+	background-color: #f88b76;
+	border-color: #f8694d;
+}
+
+.btn-default i {
+	color: #f8694d;
+}
+
+.btn-default:hover i {
+	color: #fff;
 }
 
 .navbar ul.nav li a, .navbar ul.nav li a:hover {
@@ -107,6 +115,12 @@ a:hover {
 
 .form-float {
 	margin-top: 20px;
+}
+
+/***RANK ICONS***/
+
+.btn-default i, .btn-success i {
+	color: #fff;
 }
 
 /***PANELS***/

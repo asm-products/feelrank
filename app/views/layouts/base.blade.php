@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>feelrank - Let The Internet Know How You Feel</title>
+    <title>FeelRank - Let The Internet Know How You Feel</title>
 
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/jquery.tagsinput.css') }}
@@ -32,7 +32,7 @@
       <div class="container">
 
         <div class="navbar-header">
-          <a class="navbar-brand" href="/"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+          <a class="navbar-brand" href="/home"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
         </div>
         
         <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>

@@ -36,7 +36,13 @@
             <div class="row">
               <div class="col-lg-12">
                 <p class="pull-right">
-                  {{ $discussion_count = $post->discussions->count() }} @if ($discussion_count == 1) Discussion @else Discussions @endif
+                  @if (Auth::check())
+                    @if (Auth::user()->followedPosts->contains($post->id))
+                      <span id="follow-post-{{ $post->id }}"><a class="btn btn-success btn-xs" href="#" ic-src="/posts/{{ $post->id }}/unfollow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>
+                    @else
+                      <span id="follow-post-{{ $post->id }}"><a class="btn btn-default btn-xs" href="#" ic-src="/posts/{{ $post->id }}/follow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>
+                    @endif
+                  @endif
                 </p>
 
                 <p id="post-ranks-{{ $post->id }}" class="pull-left">
@@ -89,21 +95,11 @@
           </div>
         @endif
 
-        @foreach ($post->discussions as $discussion)
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4>{{ $discussion->title }}</h4>
-            <p>
-              <a href="/discussions/{{ $discussion->id }}">
-                {{ $comment_count = $discussion->comments()->count() }}
-                @if ($comment_count > 1 || $comment_count == 0)
-                  Comments
-                @else
-                  Comment
-                @endif
-              </a>
-            </p>
-          </div>
-        @endforeach
+        @if (count($post->discussions) > 0)
+          @foreach ($post->discussions as $discussion)
+            @include ('discussions.partials.discussion')
+          @endforeach
+        @endif
       </div>
 
   </div>

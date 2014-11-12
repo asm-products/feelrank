@@ -86,4 +86,26 @@ class PostRepository {
 	{
 		return \Tag::find($id)->posts;
 	}
+
+	public function follow($id)
+	{
+		$post = Post::find($id);
+		$user = Auth::user();
+
+		$user->followedPosts()->attach($post);
+		$user->save();
+
+		return $post;
+	}
+
+	public function unfollow($id)
+	{
+		$post = Post::find($id);
+		$user = Auth::user();
+
+		$user->followedPosts()->detach($post);
+		$user->save();
+
+		return $post;
+	}
 }

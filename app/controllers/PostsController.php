@@ -162,4 +162,18 @@ class PostsController extends BaseController {
 
 		return View::make('tags.search', compact('tags'));
 	}
+
+	public function follow($id)
+	{
+		$post = $this->PostRepository->follow($id);
+
+		return '<span id="follow-post-' . $post->id . '"><a href="#" class="btn btn-success btn-xs" ic-src="/tags/' . $post->id . '/unfollow" ic-trigger-on="click" ic-target="#follow-post-' . $post->id . '"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>';
+	}
+
+	public function unfollow($id)
+	{
+		$post = $this->PostRepository->unfollow($id);
+
+		return '<span id="follow-post-' . $post->id . '"><a href="#" class="btn btn-default btn-xs" ic-src="/tags/' . $post->id . '/follow" ic-trigger-on="click" ic-target="#follow-post-' . $post->id . '"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>';
+	}
 }	

@@ -7,6 +7,8 @@ class User extends Eloquent implements ConfideUserInterface
 {
     use ConfideUser;
 
+    // Created by User
+
     public function posts()
     {
 		return $this->hasMany('Post');
@@ -27,8 +29,20 @@ class User extends Eloquent implements ConfideUserInterface
     	return $this->hasMany('Rank');
     }
 
-    public function tags()
+    // Followed by User
+
+    public function followedTags()
     {
         return $this->belongsToMany('Tag');
+    }
+
+    public function followedPosts()
+    {
+        return $this->belongsToMany('Post');
+    }
+
+    public function followedDiscussions()
+    {
+        return $this->belongsToMany('Discussion');
     }
 }

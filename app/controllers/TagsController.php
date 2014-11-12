@@ -22,7 +22,7 @@ class TagsController extends BaseController {
 
 	public function taggedPosts()
 	{
-		$tags = Auth::user()->tags;
+		$tags = Auth::user()->followedTags;
 
 		$posts = '';
 
@@ -50,18 +50,18 @@ class TagsController extends BaseController {
 		return View::make('tags.results', compact('tags', 'query'));
 	}
 
-	public function save($id)
+	public function follow($id)
 	{
-		$tag = $this->TagRepository->save($id);
+		$tag = $this->TagRepository->follow($id);
 
-		return '<span id="save-tag-' . $tag->id . '"><a href="#" ic-src="/tags/' . $tag->id . '/remove" ic-trigger-on="click" ic-target="#save-tag-' . $tag->id . '">Remove</a></span>';
+		return '<span id="follow-tag-' . $tag->id . '"><a href="#" class="btn btn-success" ic-src="/tags/' . $tag->id . '/unfollow" ic-trigger-on="click" ic-target="#follow-tag-' . $tag->id . '"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>';
 	}
 
-	public function remove($id)
+	public function unfollow($id)
 	{
-		$tag = $this->TagRepository->remove($id);
+		$tag = $this->TagRepository->unfollow($id);
 
-		return '<span id="save-tag-' . $tag->id . '"><a href="#" ic-src="/tags/' . $tag->id . '/save" ic-trigger-on="click" ic-target="#save-tag-' . $tag->id . '">Save</a></span>';
+		return '<span id="follow-tag-' . $tag->id . '"><a href="#" class="btn btn-default" ic-src="/tags/' . $tag->id . '/follow" ic-trigger-on="click" ic-target="#follow-tag-' . $tag->id . '"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>';
 	}
 
 	public function getTaggedPosts($id)

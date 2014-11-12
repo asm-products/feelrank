@@ -5,7 +5,7 @@
         @if ($post->thumbnail != null)
           <img class="pull-left thumbnail-post" src="{{ urldecode($post->thumbnail) }}" alt="{{ $post->title }}" />
         @endif
-        <a href="{{ urldecode($post->url) }}" target="_blank"><h3>{{ $post->title }}</h3></a>
+        <a href="/posts/{{ $post->id }}" target="_blank"><h3>{{ $post->title }}</h3></a>
         <p>{{ $post->description }}</p>
         <p>
           Tags:
@@ -24,7 +24,13 @@
     <div class="row">
       <div class="col-lg-12">
         <p class="pull-right">
-          <a href="/posts/{{ $post->id }}">{{ $post->discussions->count() }} Discussions</a>
+          @if (Auth::check())
+            @if (Auth::user()->followedPosts->contains($post->id))
+              <span id="follow-post-{{ $post->id }}"><a class="btn btn-success btn-xs" href="" ic-src="/posts/{{ $post->id }}/unfollow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>
+            @else
+              <span id="follow-post-{{ $post->id }}"><a class="btn btn-default btn-xs" href="" ic-src="/posts/{{ $post->id }}/follow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>
+            @endif
+          @endif
         </p>
 
         <p id="post-ranks-{{ $post->id }}" class="pull-left">

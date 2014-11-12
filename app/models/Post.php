@@ -25,4 +25,9 @@ class Post extends Eloquent
 	{
 		return $this->morphToMany('Tag', 'taggable');
 	}
+
+	public function followers()
+	{
+		return $this->belongsToMany('User');
+	}
 }

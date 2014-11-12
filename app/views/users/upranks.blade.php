@@ -15,33 +15,7 @@
 
         @if ($uprank->rankable_type === 'Post')
 
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="container-post">
-              <div class="row">
-                <div class="col-lg-12">
-                  @if ($uprank->rankable->thumbnail != null)
-                    <img class="pull-left thumbnail-post" src="{{ urldecode($uprank->rankable->thumbnail) }}" alt="{{ $uprank->rankable->title }}" />
-                  @endif
-                  <a href="/posts/{{ $uprank->rankable->id }}"><h3>{{ $uprank->rankable->title }}</h3></a>
-                  <p>{{ $uprank->rankable->description }}</p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-12">
-                  <p class="pull-right">
-                    <a href="#">{{ $uprank->rankable->discussions->count() }} Discussions</a>
-                  </p>
-
-                  <p id="post-ranks-{{ $uprank->rankable->id }}" class="pull-left">
-
-                    @include('partials.posts.uprank', ['post' => $uprank->rankable->load('ranks')])
-
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          @include ('posts.post', ['post' => $uprank->rankable])
 
         @elseif ($uprank->rankable_type === 'Discussion')
 

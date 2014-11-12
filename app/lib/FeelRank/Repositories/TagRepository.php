@@ -28,23 +28,23 @@ class TagRepository {
 		return $tags;
 	}
 
-	public function save($id)
+	public function follow($id)
 	{
 		$tag = Tag::find($id);
 		$user = Auth::user();
 
-		$user->tags()->attach($tag);
+		$user->followedTags()->attach($tag);
 		$user->save();
 
 		return $tag;
 	}
 
-	public function remove($id)
+	public function unfollow($id)
 	{
 		$tag = Tag::find($id);
 		$user = Auth::user();
 
-		$user->tags()->detach($tag);
+		$user->followedTags()->detach($tag);
 		$user->save();
 
 		return $tag;
