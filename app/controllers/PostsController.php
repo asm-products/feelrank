@@ -42,9 +42,16 @@ class PostsController extends BaseController {
 
 	public function fetch()
 	{
+		$input = Input::all();
+
+		if (substr($input['url'], 0, 7) !== "http://")
+		{
+			$input['url'] = 'http://' . $input['url'];
+		}
+
 		try
 		{
-			$url_info = $this->PostService->fetch(Input::all());
+			$url_info = $this->PostService->fetch($input);
 		}
 		catch (FeelRank\Validators\ValidationException $e)
 		{
