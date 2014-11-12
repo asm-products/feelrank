@@ -32,7 +32,11 @@
       <div class="container">
 
         <div class="navbar-header">
-          <a class="navbar-brand" href="/home"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+          @if (Auth::check())
+            <a class="navbar-brand" href="/home"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+          @else
+            <a class="navbar-brand" href="/"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+          @endif
         </div>
         
         <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
