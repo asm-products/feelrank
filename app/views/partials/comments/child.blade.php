@@ -26,7 +26,7 @@
           @endif
         </p>
 
-        {{ $comment_child->body }}
+        {{ nl2br($comment_child->body) }}
 
         @if(Auth::check())<br /><a ic-src="/discussions/{{ $comment_child->discussion->id }}/comments/{{ $comment_child->id }}/create" ic-target="#reply-to-{{ $comment_child->id }}" ic-verb="get" ic-trigger-on="click">Reply</a>
 

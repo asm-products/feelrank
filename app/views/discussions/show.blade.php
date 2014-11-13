@@ -124,7 +124,7 @@
                 @endif
               </p>
 
-              {{ $comment->body }}
+              {{ nl2br($comment->body) }}
               @if(Auth::check())<br /><a ic-src="/discussions/{{ $discussion->id }}/comments/{{ $comment->id }}/create" ic-target="#reply-to-{{ $comment->id }}" ic-verb="get" ic-trigger-on="click">Reply</a>
 
               <div id="reply-to-{{ $comment->id }}"></div>@endif
@@ -156,7 +156,7 @@
                           @endif
                         </p>
 
-                        {{ $comment_child->body }}
+                        {{ nl2br($comment_child->body) }}
                         @if(Auth::check())<br /><a ic-src="/discussions/{{ $discussion->id }}/comments/{{ $comment_child->id }}/create" ic-target="#reply-to-{{ $comment_child->id }}" ic-verb="get" ic-trigger-on="click">Reply</a>
 
                         <div id="reply-to-{{ $comment_child->id }}"></div>@endif
