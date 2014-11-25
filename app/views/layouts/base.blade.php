@@ -44,9 +44,9 @@
 
         <div class="navbar-header">
           @if (Auth::check())
-            <a class="navbar-brand" href="/home"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+            <a class="navbar-brand" href="/home">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}</a>
           @else
-            <a class="navbar-brand" href="/"><img src="/img/feelrank-logo-white.png" alt="FeelRank" /></a>
+            <a class="navbar-brand" href="/">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}</a>
           @endif
         </div>
         

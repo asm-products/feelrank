@@ -2,10 +2,9 @@
 
 @section('body')
 	<div class="jumbotron jumbotron-home">
-		<img class="center-block logo-home" src="../img/feelrank-logo-trans.png" alt="FeelRank" />
+		{{ HTML::image('img/feelrank-logo-trans.png', 'FeelRank', ['class' => 'center-block logo-home']) }}
 		<p class="lead">How do people feel about ________?</p>
 		<p><a id="learn-more" class="btn btn-lg btn-success" href="/users/create" role="button">Learn More</a></p>
-		<!--<p class="jumbotron-small">or <a href="users/login">login</a></p>-->
 	</div>
 
 	<div class="container">
