@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('joshua-370R4E-370R4V-370R5E-3570RE-370R5V'),
+	'local' => array('viciousambitious-feelrank-1117023'),
 
 ));
 
