@@ -77,7 +77,7 @@ class SitesController extends BaseController {
 				return $title[1];
 			}
 			
-			return $title[0];
+			return $title;
 	    }
 	    
 	    // Update to throw exception instead.

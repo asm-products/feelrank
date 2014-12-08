@@ -123,7 +123,20 @@ Route::get('utils/getthumbnails', function() {
 	
 	foreach ($posts as $post)
 	{
-		$corrector->getImg($post->url);
+		$dirname = dirname('img/' . $post->id . '/thumbnail.png');
+			
+		if (!is_dir($dirname))
+		{
+		    mkdir($dirname, 0755, true);
+		}
+		
+		$ch = curl_init($corrector->getImg($post->url));
+		$fp = fopen('img/' . $post->id . '/thumbnail.png', 'wb');
+		curl_setopt($ch, CURLOPT_FILE, $fp);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_exec($ch);
+		curl_close($ch);
+		fclose($fp);
 	}
 	
 	return "Success!";
