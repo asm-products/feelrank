@@ -119,7 +119,7 @@ Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' =
 Route::get('utils/getthumbnails', function() {
 	$posts = Post::all();
 	
-	$corrector = FeelRank\Connectors\UrlboxConnector;
+	$corrector = new FeelRank\Connectors\UrlboxConnector;
 	
 	foreach ($posts as $post)
 	{

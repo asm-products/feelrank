@@ -21,7 +21,7 @@
     <br />
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-card">
 
         @if (count($tags) > 0)
           <?php $i = 0; ?>
