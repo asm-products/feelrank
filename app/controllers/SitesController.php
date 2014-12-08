@@ -71,7 +71,13 @@ class SitesController extends BaseController {
 	    if(strlen($str)>0)
 	    {
 	    	preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
-			return $title[1];
+			
+			if (isset($title[1]))
+			{
+				return $title[1];
+			}
+			
+			return $title[0];
 	    }
 	    
 	    // Update to throw exception instead.
