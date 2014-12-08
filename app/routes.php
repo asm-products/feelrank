@@ -41,6 +41,15 @@ Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
+// Sites
+Route::group(['prefix' => 'sites'], function()
+{
+	Route::get('create', 'SitesController@create');	
+	Route::post('create', 'SitesController@store');	
+	Route::post('create2', 'SitesController@store2');
+	Route::get('list', 'SitesController@show');
+});
+
 // User edit profile
 Route::get('users/update', 'UsersController@update');
 Route::post('users/update', 'UsersController@doUpdate');
@@ -70,6 +79,7 @@ Route::get('tags/{id}', ['uses' => 'TagsController@taggedPost']);
 Route::get('tags/{id}/follow', ['uses' => 'TagsController@follow']);
 Route::get('tags/{id}/unfollow', ['uses' => 'TagsController@unfollow']);
 Route::get('tags/{id}/get', ['uses' => 'TagsController@getTaggedPosts']);
+Route::post('tags/add', ['uses' => 'TagsController@addTags']);
 Route::get('tags', ['uses' => 'TagsController@taggedPosts']);
 
 // Post History
@@ -103,3 +113,18 @@ Route::get('comments/{id}/ranks/down', ['uses' => 'RanksController@downrank_comm
 
 Route::get('discussions/{discussion_id}/comments/{comment_id}/create', ['uses' => 'CommentsController@create_reply']);
 Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' => 'CommentsController@store_reply']);
+
+// UTILITY
+
+Route::get('utils/getthumbnails', function() {
+	$posts = Post::all();
+	
+	$corrector = \FeelRank\Connectors\UrlboxConnector;
+	
+	foreach ($posts as $post)
+	{
+		$corrector->getImg($post->url);
+	}
+	
+	return "Success!";
+});

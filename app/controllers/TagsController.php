@@ -49,6 +49,16 @@ class TagsController extends BaseController {
 
 		return View::make('tags.results', compact('tags', 'query'));
 	}
+	
+	public function addTags()
+	{
+		$input = Input::all();
+		$post = Post::find($input['post_id']);
+		
+		$tags = $this->TagRepository->create($input['tags'], $post);
+		
+		return Redirect::to('posts/' . $input['post_id']);
+	}
 
 	public function follow($id)
 	{

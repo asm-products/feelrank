@@ -1,58 +1,59 @@
-<div class="col-sm-12 col-md-6 col-lg-4">
-  <div class="container-post">
-    <div class="row">
-      <div class="col-lg-12">
-        @if ($post->thumbnail != null)
-          <img class="pull-left thumbnail-post" src="{{ urldecode($post->thumbnail) }}" alt="{{ $post->title }}" />
-        @endif
-        <a href="/posts/{{ $post->id }}"><h3>{{ $post->title }}</h3></a>
-        <p>{{ $post->description }}</p>
-        <p>
-          Tags:
+<div id="card-post-{{ $post->id }}" class="flip-container">
+  <div class="flipper">
 
-          @if($post->tags->count() > 0)
-            @foreach ($post->tags as $tag)
-              <a href="/tags/{{ $tag->id }}">{{ $tag->name }}</a>&nbsp;
-            @endforeach
-          @else
-            Untagged
-          @endif
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
-        <p class="pull-right">
-          @if (Auth::check())
-            @if (Auth::user()->followedPosts->contains($post->id))
-              <span id="follow-post-{{ $post->id }}"><a class="btn btn-success btn-xs" href="" ic-src="/posts/{{ $post->id }}/unfollow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a></span>
-            @else
-              <span id="follow-post-{{ $post->id }}"><a class="btn btn-default btn-xs" href="" ic-src="/posts/{{ $post->id }}/follow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>
-            @endif
-          @endif
-        </p>
-
-        <p id="post-ranks-{{ $post->id }}" class="pull-left">
-
-          @if (Auth::check())
-            @if (is_null($previous_rank = $post->ranks()->previousRank(Auth::user()->id)->first()))
-              @include('partials.posts.norank')
-            @else
-
-              @if ($previous_rank->vote == 1)
-                @include('partials.posts.uprank')
+    <div class="panel panel-default card-front">
+      <div class="panel-body" style="background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.85))), url('/img/{{ $post->id }}/thumbnail.png'); background-size: cover; background-position: left top;">
+        <h3 class="text-center card-title">{{ $post->title }}</h3>
+        <h3 class="text-center card-btn-container">
+          <div id="post-ranks-{{ $post->id }}" class="btn-group btn-group-lg btn-group-justified">
+            @if (Auth::check())
+              @if (is_null($previous_rank = $post->ranks()->previousRank(Auth::user()->id)->first()))
+                @include('partials.posts.norank')
               @else
-                @include('partials.posts.downrank')
+  
+                @if ($previous_rank->vote == 1)
+                  @include('partials.posts.uprank')
+                @else
+                  @include('partials.posts.downrank')
+                @endif
+  
               @endif
-
+            @else
+              @include('partials.posts.guestrank')
             @endif
-          @else
-            @include('partials.posts.guestrank')
-          @endif
-
-        </p>
+          </div>
+        </h3>
+        <a onclick="$('#card-post-{{ $post->id }}').toggleClass('flip')" class="btn btn-default btn-lg card-flip"><i class="fa fa-refresh"></i></a>
       </div>
     </div>
-  </div>
-</div>
+
+    <div class="panel panel-default card-back">
+      <div class="panel-body">
+        <a onclick="$('#card-post-{{ $post->id }}').toggleClass('flip')" class="btn btn-default btn-lg card-flip"><i class="fa fa-refresh"></i></a>
+        <div class="panel-tags">
+          @include ('posts.partials.tags')
+        </div>
+        <hr style="margin-top: 10px;" />
+        <a style="display: block; text-align: center;" href="/posts/{{ $post->id }}">All Tags</a>
+        <hr />
+          @include ('posts.partials.discussions')
+        <a style="display: block; text-align: center;" href="/posts/{{ $post->id }}">All Discussions</a>
+
+        <h3 class="text-center card-btn-container">
+          <div class="btn-group btn-group-lg btn-group-justified">
+            @if (Auth::check())
+              <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-add-tags" data-postid="{{ $post->id }}"><i class="fa fa-tag fa-lg"></i></a>
+              <a class="btn btn-link">ADD</a>
+              <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-create-discussion" data-postid="{{ $post->id }}"><i class="fa fa-comments fa-lg"></i></a>
+            @else
+              <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-login" data-postid="{{ $post->id }}"><i class="fa fa-tag fa-lg"></i></a>
+              <a class="btn btn-link">ADD</a>
+              <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-login" data-postid="{{ $post->id }}"><i class="fa fa-comments fa-lg"></i></a>
+            @endif
+          </div>
+        </h3>
+      </div>
+    </div>
+
+  </div><!--/.flipper-->
+</div><!--/.flip-container-->

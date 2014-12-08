@@ -14,6 +14,24 @@
     {{ HTML::style('css/jquery.tagsinput.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/feelrank.css') }}
+    {{ HTML::style('css/feelrank-card.css') }}
+    
+    <style>
+      #loading-icon {
+      	display: none;
+      	font-size: 64px;
+      	text-align: center;
+      	color: #ddd;
+      }
+      
+      #loading-icon small {
+      	font-size: 36px;
+      }
+      
+      #discussion-title {
+      	display: none;
+      }
+    </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -229,6 +247,8 @@
     @endif
 
   </div><!--end wrapper-->
+  
+  @include('modals.login')
 
     {{-- HTML::script('http://code.jquery.com/jquery-1.11.1.min.js') --}}
     {{ HTML::script('js/jquery-1.10.2.min.js') }}
@@ -240,6 +260,13 @@
     <script>
       $(function() {
         $('.panel-slide').css('height', $(window).height())
+        
+        $('.card-back').css('width', $('.card-front').width());
+
+        $(window).resize(function() {
+          $('.card-back').css('width', $('.card-front').width());
+        });
+
       });
     </script>
 

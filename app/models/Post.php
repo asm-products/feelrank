@@ -15,6 +15,11 @@ class Post extends Eloquent
 	{
 		return $this->hasMany('Discussion');
 	}
+	
+	public function cardDiscussions()
+	{
+		return $this->discussions()->take(2);
+	}
 
 	public function ranks()
 	{
@@ -24,6 +29,11 @@ class Post extends Eloquent
 	public function tags()
 	{
 		return $this->morphToMany('Tag', 'taggable');
+	}
+	
+	public function cardTags()
+	{
+		return $this->tags()->take(5);
 	}
 
 	public function followers()

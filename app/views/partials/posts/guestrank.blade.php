@@ -1,3 +1,3 @@
-<a href="/users/login"><i class="fa fa-chevron-up text-muted"></i></a>
-&nbsp;{{ $post->ranks()->sum('vote') }}&nbsp;
-<a href="/users/login"><i class="fa fa-chevron-down text-muted"></i></a>
+<a class="btn btn-success" data-toggle="modal" data-target="#modal-login"><i class="fa fa-thumbs-o-up fa-lg"></i></a>
+<a class="btn btn-link">{{ $post->ranks()->sum('vote') }}</a>
+<a class="btn btn-danger" data-toggle="modal" data-target="#modal-login"><i class="fa fa-thumbs-o-down fa-lg"></i></a>

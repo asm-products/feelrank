@@ -18,6 +18,8 @@ class CreateTableDiscussions extends Migration {
 			$table->string('title')->nullable();
 			$table->bigInteger('post_id');
 			$table->foreign('post_id')->references('id')->on('posts');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
 	}

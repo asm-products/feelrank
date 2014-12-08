@@ -1,0 +1,130 @@
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+}
+
+/* flip the pane when class flip added */
+.flip .flipper {
+	transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.card-front, .card-back {
+	backface-visibility: hidden;
+}
+
+/* front pane, placed above back */
+.card-front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.card-back {
+	transform: rotateY(180deg);
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* card styles */
+
+.card-front .panel-body, .card-back .panel-body {
+	height: 500px;
+}
+
+.card-front .panel-body {
+	position: relative;
+	text-shadow: 0 1px 2px #000;
+}
+
+.card-title { 
+	color: #fff;
+	position: absolute;
+	bottom: 80px;
+	left: 15px;
+	right: 15px;
+}
+
+.card-btn-container {
+	color: #fff;
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+	right: 20px;
+}
+
+.card-front .card-flip {
+	position: absolute; top: 0; right: 0; border: none; text-shadow: none;
+}
+
+.card-back .card-flip {
+	border: none; text-shadow: none; float: right; margin: -15px -15px 0 0;
+}
+
+.card-front .btn-link { 
+	color: #fff; text-align: center;
+}
+
+.card-back .btn-link {
+	color: #000; text-align: center;
+}
+
+.flip-container .btn-group .btn {
+	text-shadow: none;
+}
+
+.panel-tags a {
+	margin-bottom: 15px;
+}
+
+.card-back hr {
+	border-color: #eee;
+}
+
+.card-flip {
+	background: #fff;
+}
+
+.card-flip:hover {
+	background: #eee;
+}
+
+.card-flip i {
+	color: #333;
+}
+
+.card-flip:hover i {
+	color: #333;
+}
+
+@media screen and (min-width: 750px) {
+	.col-card {
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-bottom: 25px;
+	}
+}
+
+@media screen and (max-width: 749px) {
+	.col-card {
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-bottom: 30px;
+	}
+}
+
+.card-front .btn-group .btn-link:hover, .card-back .btn-group .btn-link:hover {
+	text-decoration: none;
+	cursor: default;
+}

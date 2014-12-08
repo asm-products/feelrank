@@ -117,6 +117,17 @@ a:hover {
 	margin-top: 20px;
 }
 
+#loading-icon {
+	display: none;
+	font-size: 64px;
+	text-align: center;
+	color: #ddd;
+}
+
+#loading-icon small {
+	font-size: 36px;
+}
+
 /***RANK ICONS***/
 
 .btn-default i, .btn-success i {
@@ -205,6 +216,12 @@ p.rank {
 	margin-top: 8px;
 	margin-bottom: 0;
 	text-align: center;
+}
+
+/***POST - CREATE***/
+
+#discussion-title {
+	display: none;
 }
 
 /***COMMENTS***/

@@ -1,1 +1,20 @@
 [25-Nov-2014 00:53:34 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/feelrank/app/storage/views/cf9fe3117154d114288d9f0a44a4b458 on line 51
+[25-Nov-2014 04:47:25 UTC] PHP Fatal error:  Call to undefined function FeelRank\Services\gmp_intval() in /home/ubuntu/workspace/app/lib/FeelRank/Services/Url64Service.php on line 78
+[25-Nov-2014 04:53:01 UTC] PHP Fatal error:  Using $this when not in object context in /home/ubuntu/workspace/app/lib/Helpers.php on line 23
+[25-Nov-2014 04:55:03 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/ubuntu/workspace/app/lib/Helpers.php on line 23
+[25-Nov-2014 04:56:25 UTC] PHP Parse error:  syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM) in /home/ubuntu/workspace/app/lib/Helpers.php on line 23
+[25-Nov-2014 05:05:34 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/d3f0807a55987ba1933a4a72caf90f54 on line 2
+[25-Nov-2014 05:07:07 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/d3f0807a55987ba1933a4a72caf90f54 on line 2
+[25-Nov-2014 05:08:05 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/ubuntu/workspace/app/lib/Helpers.php on line 23
+[01-Dec-2014 03:54:38 UTC] PHP Fatal error:  Call to undefined function curl_init() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 37
+[01-Dec-2014 03:56:05 UTC] PHP Fatal error:  Call to undefined function curl_init() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 37
+[03-Dec-2014 02:22:29 UTC] PHP Fatal error:  Call to undefined function getTitle() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 30
+[03-Dec-2014 03:56:37 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/ubuntu/workspace/app/controllers/SitesController.php on line 83
+[03-Dec-2014 04:02:11 UTC] PHP Fatal error:  Call to undefined function Redirect() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 96
+[03-Dec-2014 04:18:43 UTC] PHP Fatal error:  Call to undefined function Redirect() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 96
+[06-Dec-2014 21:52:10 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/ubuntu/workspace/app/controllers/SitesController.php on line 99
+[06-Dec-2014 21:52:11 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/ubuntu/workspace/app/controllers/SitesController.php on line 99
+[08-Dec-2014 01:12:29 UTC] PHP Parse error:  syntax error, unexpected '5' (T_LNUMBER), expecting identifier (T_STRING) in /home/ubuntu/workspace/app/models/Post.php on line 29
+[08-Dec-2014 01:21:02 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/91a59168def7a89c44d55f594506ce64 on line 5
+[08-Dec-2014 01:21:29 UTC] PHP Fatal error:  Cannot use object of type Illuminate\Database\Eloquent\Relations\MorphToMany as array in /home/ubuntu/workspace/app/storage/views/91a59168def7a89c44d55f594506ce64 on line 5
+[08-Dec-2014 02:50:29 UTC] PHP Fatal error:  Undefined class constant 'check' in /home/ubuntu/workspace/app/storage/views/0c3bad21f9e3a2f2abeeb85ad7cf7499 on line 44

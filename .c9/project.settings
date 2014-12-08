@@ -1,49 +1,49 @@
 {
-    "run": {
-        "@path": "/.c9/runners",
-        "configs": {
-            "json()": {
-                "PHP": {
-                    "runner": "Apache httpd (PHP, HTML)",
-                    "command": "",
-                    "name": "Apache & PHP",
-                    "default": true
-                },
-                "Apache & PHP": {
-                    "runner": "Apache httpd (PHP, HTML)",
-                    "command": "",
-                    "name": "Apache & PHP",
-                    "default": true,
-                    "debug": true,
-                    "env": {}
-                }
-            },
-            "@inited": "true"
-        }
-    },
     "ace": {
+        "@guessTabSize": "true",
         "@newLineMode": "unix",
         "@tabSize": "4",
-        "@useSoftTabs": "true",
-        "@guessTabSize": "true"
+        "@useSoftTabs": "true"
+    },
+    "build": {
+        "@builder": "auto",
+        "@path": "/.c9/builders",
+        "@saveall": true
     },
     "find.nak": {
         "@searchLimit": 100
     },
     "language": {
-        "@warnLevel": "info",
         "@instanceHighlight": "true",
         "@undeclaredVars": "true",
-        "@unusedFunctionArgs": "false"
+        "@unusedFunctionArgs": "false",
+        "@warnLevel": "info"
     },
-    "build": {
-        "@path": "/.c9/builders",
-        "@saveall": true,
-        "@builder": "auto"
+    "run": {
+        "@path": "/.c9/runners",
+        "configs": {
+            "@inited": "true",
+            "json()": {
+                "Apache & PHP": {
+                    "command": "",
+                    "debug": true,
+                    "default": true,
+                    "env": {},
+                    "name": "Apache & PHP",
+                    "runner": "Apache httpd (PHP, HTML)"
+                },
+                "PHP": {
+                    "command": "",
+                    "default": true,
+                    "name": "Apache & PHP",
+                    "runner": "Apache httpd (PHP, HTML)"
+                }
+            }
+        }
     },
     "share": {
-        "@preview": false,
         "@app": false,
+        "@preview": false,
         "@useOwnerSettings": false
     }
 }
