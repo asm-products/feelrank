@@ -18,3 +18,5 @@
 [08-Dec-2014 01:21:02 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/91a59168def7a89c44d55f594506ce64 on line 5
 [08-Dec-2014 01:21:29 UTC] PHP Fatal error:  Cannot use object of type Illuminate\Database\Eloquent\Relations\MorphToMany as array in /home/ubuntu/workspace/app/storage/views/91a59168def7a89c44d55f594506ce64 on line 5
 [08-Dec-2014 02:50:29 UTC] PHP Fatal error:  Undefined class constant 'check' in /home/ubuntu/workspace/app/storage/views/0c3bad21f9e3a2f2abeeb85ad7cf7499 on line 44
+[08-Dec-2014 04:19:18 UTC] PHP Fatal error:  Call to undefined function file_get_contents_curl() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 69
+[08-Dec-2014 04:19:32 UTC] PHP Fatal error:  Call to undefined function file_get_contents_curl() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 69

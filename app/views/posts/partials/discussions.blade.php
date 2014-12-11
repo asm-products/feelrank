@@ -14,4 +14,5 @@
     @endforeach
 @else
     No discussions yet.
+    <hr />
 @endif

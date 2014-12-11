@@ -15,7 +15,7 @@
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/feelrank.css') }}
     {{ HTML::style('css/feelrank-card.css') }}
-    
+
     <style>
       #loading-icon {
       	display: none;
@@ -62,9 +62,9 @@
 
         <div class="navbar-header">
           @if (Auth::check())
-            <a class="navbar-brand" href="/home">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}</a>
+            <a class="navbar-brand" href="/home">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}<span class="badge badge-beta">beta</span></a>
           @else
-            <a class="navbar-brand" href="/">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}</a>
+            <a class="navbar-brand" href="/">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}<span class="badge badge-beta">beta</span></a>
           @endif
         </div>
         

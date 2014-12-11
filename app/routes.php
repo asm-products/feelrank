@@ -116,7 +116,7 @@ Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' =
 
 // UTILITY
 
-Route::get('utils/getthumbnails', function() {
+/*Route::get('utils/getthumbnails', function() {
 	$posts = Post::all();
 	
 	$corrector = new FeelRank\Connectors\UrlboxConnector;
@@ -140,4 +140,4 @@ Route::get('utils/getthumbnails', function() {
 	}
 	
 	return "Success!";
-});
+});*/

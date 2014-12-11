@@ -66,22 +66,17 @@ class SitesController extends BaseController {
 	{
 		// Doesn't work for some reason though it worked before.
 		
-	    $str = file_get_contents($url);
-	    
-	    if(strlen($str)>0)
-	    {
-	    	preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
-			
-			if (isset($title[1]))
-			{
-				return $title[1];
-			}
-			
-			return $title;
-	    }
-	    
-	    // Update to throw exception instead.
-	    return 'No title found.';
+	    $html = file_get_contents($url);
+
+		//parsing begins here:
+		$doc = new DOMDocument();
+		@$doc->loadHTML($html);
+		$nodes = $doc->getElementsByTagName('title');
+		
+		//get and display what you need:
+		$title = $nodes->item(0)->nodeValue;
+		
+		return $title;
 	}
 	
 	public function store2()

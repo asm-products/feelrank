@@ -128,6 +128,12 @@ a:hover {
 	font-size: 36px;
 }
 
+.badge-beta {
+	background: transparent;
+	border: 1px solid #fff;
+	margin-left: 15px;
+}
+
 /***RANK ICONS***/
 
 .btn-default i, .btn-success i {
