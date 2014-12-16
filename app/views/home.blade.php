@@ -75,7 +75,7 @@
 
 						<br />
 						
-						<p>FeelRank is currently in a closed beta, but will be ready soon! To get updates, fill in your email below.<br />For answers to your burning questions, contact us at <a href="mailto:hi@feelrank.com">hi@feelrank.com</a></p>
+						<p>FeelRank is currently in a closed beta, but will be ready soon! To get updates, fill in your email below.<br />For answers to your burning questions, contact us at <a href="mailto:hi@feelrank.com">hi@feelrank.com</a>.</p>
 						
 						<br />
 						
