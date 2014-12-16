@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>FeelRank - Let The Internet Know How You Feel</title>
+    <title>FeelRank (Beta) - Let The Internet Know How You Feel</title>
 
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/jquery.tagsinput.css') }}
@@ -78,9 +78,9 @@
 
         @if (!Auth::check())
 
-          <a href="/users/create" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Sign Up</a>
+          <a href="/users/login" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Login</a>
 
-          <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
+          <!--<ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
             <li><a href="/tags/search">Tags</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
@@ -100,10 +100,10 @@
                 <li><a href="/posts/leastdiscussions">Discussions</a></li>
               </ul>
             </li>
-            <!--<li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>-->
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
             <li><a href="/users/login">Login</a></li>
-          </ul>
+          </ul>-->
 
         @else
 
@@ -186,11 +186,11 @@
       <div id="panel-nav-content" class="panel-slide panel-nav">
         <ul>
           @if (Auth::check())
-            <li><a href="/tags">Tags</a></li>
+            <!--<li><a href="/tags">Tags</a></li>-->
           @else
-            <li><a href="/tags/search">Tags</a></li>
+            <!--<li><a href="/tags/search">Tags</a></li>-->
           @endif
-          <li class="dropdown-toggle">
+          <!--<li class="dropdown-toggle">
             Most
 
             <ul class="dropdown-sidebar">
@@ -207,15 +207,15 @@
               <li><a href="/posts/leastrank">Rank</a></li>
               <li><a href="/posts/leastdiscussions">Discussions</a></li>
             </ul>
-          </li>
+          </li>-->
           @if (!Auth::check())
             <li><a href="/users/login">Login</a></li>
-            <li><a href="/users/create">Signup</a></li>
+            <!--<li><a href="/users/create">Signup</a></li>-->
           @endif
 
           @if (Auth::check())
 
-            <li class="dropdown-toggle">
+            <!--<li class="dropdown-toggle">
               My
 
               <ul class="dropdown-sidebar">
@@ -225,7 +225,7 @@
                 <li><a href="/users/{{ Auth::user()->id }}/upranks">Upranks</a></li>
                 <li><a href="/users/{{ Auth::user()->id }}/downranks">Downranks</a></li>
               </ul>
-            </li>
+            </li>-->
 
           @endif
         </ul>
