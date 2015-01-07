@@ -68,35 +68,25 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-12 text-center">
+					<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
 						<br /><br />
 
 						<h3>The Internet's ready to sit down and talk about it, are you?</h3>
 
 						<br />
 						
-						<p>FeelRank is currently in a closed beta, but will be ready soon! To get updates, fill in your email below.<br />For answers to your burning questions, contact us at <a href="mailto:hi@feelrank.com">hi@feelrank.com</a>.</p>
+						<p>FeelRank is currently in a closed beta, but will be ready soon! To get updates, fill in your email below or contact us at <a href="mailto:hi@feelrank.com">hi@feelrank.com</a>.</p>
 						
 						<br />
 						
-						<!-- Begin MailChimp Signup Form -->
-						<h4>Subscribe to our mailing list</h4>
-
-						<form action="//feelrank.us9.list-manage.com/subscribe/post?u=c87e2c656bb1eeabbeb20cb1d&amp;id=1950ea6f84" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<div class="form-group">
-								<label class="sr-only" for="mce-EMAIL">Email Address</label>
-								<input placeholder="Email Address" style="max-width: 300px; display: block; margin: 0 auto;" type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
-							</div>
-							<div id="mce-responses" class="clear">
-								<div class="response alert alert-danger" id="mce-error-response" style="display:none"></div>
-								<div class="response alert alert-success" id="mce-success-response" style="display:none"></div>
-							</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-						    <div style="position: absolute; left: -5000px;"><input type="text" name="b_c87e2c656bb1eeabbeb20cb1d_1950ea6f84" tabindex="-1" value=""></div>
-						    <div class="clear">
-						    <input class="btn btn-default" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-						</form>
-
-						<!--End mc_embed_signup-->
+				        {{ Form::open(['url' => '/betas/signup', 'method' => 'post']) }}
+				          <div class="form-group">
+				            {{ Form::label('email', 'Email', ['class' => 'sr-only']) }}
+				            {{ Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'Email']) }}
+				          </div>
+				
+				          {{ Form::submit('Sign Up', ['class' => 'btn btn-default']) }}
+				        {{ Form::close() }}
 
 						<!--<a class="btn btn-lg btn-default" href="/users/create">Give It a Try!</a>-->
 					</div>

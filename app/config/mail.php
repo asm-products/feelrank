@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'hi@feelrank.com', 'name' => 'FeelRank Support'),
+	'from' => array('address' => 'hi@feelrank.com', 'name' => 'FeelRank'),
 
 	/*
 	|--------------------------------------------------------------------------

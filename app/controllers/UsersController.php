@@ -1,6 +1,7 @@
 <?php
 
-
+use \FeelRank\Services\BetaService;
+use \FeelRank\Mailers\BetaMailer;
 
 /**
  * UsersController Class
@@ -9,6 +10,12 @@
  */
 class UsersController extends Controller
 {
+    
+    public function __construct(BetaService $betaService, BetaMailer $betaMailer)
+    {
+        $this->BetaService = $betaService;
+        $this->BetaMailer = $betaMailer;
+    }
 
     /**
      * Displays the form for account creation
@@ -230,5 +237,21 @@ class UsersController extends Controller
         $user->save();
 
         return View::make('users.profile', compact('user'))->with(['messages' => ['Profile updated!']]);
+    }
+    
+    public function betaSignup()
+    {
+		try
+		{
+			$beta = $this->BetaService->create(Input::all());
+		}
+		catch (FeelRank\Validators\ValidationException $e)
+		{
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
+		
+		$this->BetaMailer->sendTo($beta);
+		
+		return Redirect::back()->with(['messages' => ['Thanks for signing up!']]);
     }
 }

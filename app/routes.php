@@ -29,6 +29,9 @@ Route::get('/home', function()
 	return View::make('dashboard', compact('tags', 'posts', 'discussions'));
 });
 
+// Beta Signup
+Route::post('betas/signup', 'UsersController@betaSignup');
+
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');
