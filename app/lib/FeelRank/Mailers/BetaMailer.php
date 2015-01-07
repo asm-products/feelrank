@@ -11,7 +11,7 @@ class BetaMailer extends Mailer {
 		$view = 'emails.beta';
 		$subject = 'FeelRank Beta';
 		
-		return $this->send($from, $user, $subject, $view, $data);
+		return $this->send($from, $user, $subject, $view);
 		
 	}
 }
