@@ -144,7 +144,7 @@ Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' =
 	}
 	
 	return "Success!";
-});*/
+});
 
 Route::get('utils/createowner', function() {
 	$owner = new Role;
@@ -220,7 +220,7 @@ Route::get('utils/convertsources', function() {
 	return "Success!";
 });
 
-/*Route::get('utils/singlesource', function() {
+Route::get('utils/singlesource', function() {
 
 	$url = 'http://en.wikipedia.org/wiki/Thomas_Jefferson';
 	
