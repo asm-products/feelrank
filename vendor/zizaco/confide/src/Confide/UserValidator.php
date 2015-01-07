@@ -90,18 +90,17 @@ class UserValidator implements UserValidatorInterface
 
                 // Hashes password and unset password_confirmation field
                 $user->password = $hash->make($user->password);
-                unset($user->password_confirmation);
-
-                return true;
             } else {
                 $this->attachErrorMsg(
                     $user,
-                    'confide::confide.alerts.wrong_confirmation',
+                    'confide::confide.alerts.password_confirmation',
                     'password_confirmation'
                 );
                 return false;
             }
         }
+        
+        unset($user->password_confirmation);
 
         return true;
     }

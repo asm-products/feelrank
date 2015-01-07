@@ -43,6 +43,16 @@
                       <span id="follow-post-{{ $post->id }}"><a class="btn btn-default btn-xs" href="#" ic-src="/posts/{{ $post->id }}/follow" ic-trigger-on="click" ic-target="#follow-post-{{ $post->id }}"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>
                     @endif
                   @endif
+                  
+                  @if ($owned)
+                    <span id="own-post-{{ $post->id }}"><a class="btn btn-success btn-xs"><i class="fa fa-check"></i>&nbsp;&nbsp;Owned</a></span>
+                  @else
+                    <span id="own-post-{{ $post->id }}"><a class="btn btn-default btn-xs" href="#" data-toggle="modal" data-target="#modal-claim-ownership"><i class="fa fa-line-chart"></i>&nbsp;&nbsp;Claim</a></span>
+                  @endif
+
+                  @if (Auth::check())
+                    <a class="btn btn-default btn-xs" href="#" data-toggle="modal" data-target="#modal-add-tags" data-postid="{{ $post->id }}"><i class="fa fa-tag"></i>&nbsp;&nbsp;Add</a>
+                  @endif
                 </p>
 
                 <p id="post-ranks-{{ $post->id }}" class="pull-left">
@@ -103,4 +113,37 @@
       </div>
 
   </div>
+@stop
+
+@section('more_modals')
+  @include('modals.claim-ownership')
+  @include('modals.add-tags')
+@stop
+
+@section('more_js')
+  {{ HTML::script('js/jquery.tagsinput.min.js') }}
+  
+  <script>
+    $('#tags').tagsInput();
+  </script>
+  
+  <script>
+    $(function() {
+      $('#modal-add-tags').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget);
+        var recipient = button.data('postid');
+        
+        var modal = $(this);
+        modal.find('input[name="post_id"]').val(recipient);
+      });
+      
+      $('#modal-create-discussion').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget);
+        var recipient = button.data('postid');
+        
+        var modal = $(this);
+        modal.find('input[name="post_id"]').val(recipient);
+      });
+    });
+  </script>
 @stop

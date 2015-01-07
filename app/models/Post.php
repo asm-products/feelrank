@@ -15,7 +15,7 @@ class Post extends Eloquent
 	{
 		return $this->hasMany('Discussion');
 	}
-	
+
 	public function cardDiscussions()
 	{
 		return $this->discussions()->take(2);
@@ -30,7 +30,7 @@ class Post extends Eloquent
 	{
 		return $this->morphToMany('Tag', 'taggable');
 	}
-	
+
 	public function cardTags()
 	{
 		return $this->tags()->take(5);
@@ -39,5 +39,15 @@ class Post extends Eloquent
 	public function followers()
 	{
 		return $this->belongsToMany('User');
+	}
+
+	public function owners()
+	{
+        return $this->belongsToMany('User', 'ownedpost_user', 'post_id', 'user_id');
+	}
+	
+	public function source()
+	{
+		return $this->belongsTo('Source');
 	}
 }

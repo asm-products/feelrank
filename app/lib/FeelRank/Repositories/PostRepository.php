@@ -5,6 +5,9 @@ use Post;
 use Tag;
 use \Auth;
 use \FeelRank\Services\Url64Service;
+use \FeelRank\Services\SourceExtractionService;
+use \FeelRank\Services\ThumbnailService;
+use \FeelRank\Services\TitleService;
 
 class PostRepository {
 
@@ -12,9 +15,12 @@ class PostRepository {
 	// when used with groupBy. Change to use
 	// Paginator::make() in the Controller.
 
-	public function __construct(Url64Service $url64Service)
+	public function __construct(Url64Service $url64Service, SourceExtractionService $sourceExtractionService, ThumbnailService $thumbnailService, TitleService $titleService)
 	{
 		$this->Url64Service = $url64Service;
+		$this->SourceExtractionService = $sourceExtractionService;
+		$this->ThumbnailService = $thumbnailService;
+		$this->TitleService = $titleService;
 	}
 	
 	public function mostRank()
@@ -67,15 +73,12 @@ class PostRepository {
 
 		$post->id = $id;
 		$post->url = urlencode($url);
-		$post->title = $input['title'];
-		$post->source = $input['source'];
-		$post->description = $input['description'];
-		$post->thumbnail = NULL;
+		$post->title = $this->TitleService->getTitle($url);
+		$post->source = $this->SourceExtractionService->getSource($url);
+		$post->description = '';
+		$post->thumbnail = '';
 
-		if(isset($input['thumbnail']))
-		{
-			$post->thumbnail = urlencode($input['thumbnail']);
-		}
+		$this->ThumbnailService->getThumbnail($url, $id);
 
 		Auth::user()->posts()->save($post);
 

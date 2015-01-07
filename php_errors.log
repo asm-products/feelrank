@@ -20,3 +20,26 @@
 [08-Dec-2014 02:50:29 UTC] PHP Fatal error:  Undefined class constant 'check' in /home/ubuntu/workspace/app/storage/views/0c3bad21f9e3a2f2abeeb85ad7cf7499 on line 44
 [08-Dec-2014 04:19:18 UTC] PHP Fatal error:  Call to undefined function file_get_contents_curl() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 69
 [08-Dec-2014 04:19:32 UTC] PHP Fatal error:  Call to undefined function file_get_contents_curl() in /home/ubuntu/workspace/app/controllers/SitesController.php on line 69
+[19-Dec-2014 03:50:34 UTC] PHP Fatal error:  Class 'Role' not found in /home/ubuntu/workspace/app/routes.php on line 146
+[19-Dec-2014 03:52:34 UTC] PHP Fatal error:  Class 'EntrustRole' not found in /home/ubuntu/workspace/app/models/Role.php on line 4
+[19-Dec-2014 04:31:44 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:33:25 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:33:27 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:34:41 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:34:43 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:34:44 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[19-Dec-2014 04:34:44 UTC] PHP Fatal error:  Call to undefined function ability() in /home/ubuntu/workspace/app/storage/views/2492a1465f4241fa0593d76f6e298928 on line 46
+[22-Dec-2014 03:34:28 UTC] PHP Fatal error:  Class 'FeelRank\Services\DOMDocument' not found in /home/ubuntu/workspace/app/lib/FeelRank/Services/TitleService.php on line 10
+[22-Dec-2014 04:08:37 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/fb77bc4e5bcd559352bcba52631b9c29 on line 13
+[05-Jan-2015 01:03:09 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/app/routes.php on line 191
+[05-Jan-2015 01:03:54 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/app/routes.php on line 191
+[05-Jan-2015 02:05:58 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 02:07:38 UTC] PHP Fatal error:  Call to a member function get() on a non-object in /home/ubuntu/workspace/app/controllers/PostsController.php on line 221
+[05-Jan-2015 02:07:47 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 02:43:23 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 02:46:26 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 02:48:25 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 02:48:39 UTC] PHP Fatal error:  Class 'source' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 721
+[05-Jan-2015 03:09:19 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236
+[05-Jan-2015 03:09:47 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236
+[05-Jan-2015 03:10:41 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236

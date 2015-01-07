@@ -3,7 +3,7 @@
 
     <div class="panel panel-default card-front">
       <div class="panel-body" style="background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.85))), url('/img/{{ $post->id }}/thumbnail.png'); background-size: cover; background-position: left top;">
-        <h3 class="text-center card-title">{{ $post->title }}</h3>
+        <a href="/posts/{{ $post->id }}"><h3 class="text-center card-title">{{ $post->title }}</h3></a>
         <h3 class="text-center card-btn-container">
           <div id="post-ranks-{{ $post->id }}" class="btn-group btn-group-lg btn-group-justified">
             @if (Auth::check())

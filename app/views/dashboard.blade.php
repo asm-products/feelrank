@@ -39,7 +39,9 @@
             <div role="tabpanel" class="tab-pane" id="posts-tab">
               @if (count($posts) > 0)
                 @foreach ($posts as $post)
-                  @include ('posts.post')
+                  <div class="col-sm-12 col-md-6 col-lg-4 col-card">
+                    @include ('posts.post')
+                  </div>
                 @endforeach
               @else
                 <p>No followed posts!</p>

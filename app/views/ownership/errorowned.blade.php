@@ -1,0 +1,1 @@
+<div class="alert alert-danger">This site is already owned by someone, contact the site administrator for more info.</div>

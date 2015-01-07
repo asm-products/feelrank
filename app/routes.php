@@ -42,13 +42,13 @@ Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
 // Sites
-Route::group(['prefix' => 'sites'], function()
+/*Route::group(['prefix' => 'sites'], function()
 {
 	Route::get('create', 'SitesController@create');	
 	Route::post('create', 'SitesController@store');	
 	Route::post('create2', 'SitesController@store2');
 	Route::get('list', 'SitesController@show');
-});
+});*/
 
 // User edit profile
 Route::get('users/update', 'UsersController@update');
@@ -69,6 +69,10 @@ Route::get('users/{id}/posts', ['uses' => 'PostsController@userPosts']);
 
 Route::get('posts/{id}/ranks/up', ['uses' => 'RanksController@uprank_post']);
 Route::get('posts/{id}/ranks/down', ['uses' => 'RanksController@downrank_post']);
+
+Route::post('posts/store2', ['uses' => 'PostsController@store2']);
+
+Route::get('posts/{id}/claim', ['uses' => 'PostsController@claim']);
 
 Route::resource('posts', 'PostsController');
 
@@ -140,4 +144,99 @@ Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' =
 	}
 	
 	return "Success!";
+});*/
+
+Route::get('utils/createowner', function() {
+	$owner = new Role;
+	$owner->name = 'Owner';
+	$owner->save();
+	
+	if (Role::where('name', '=', 'Owner')->first())
+	{
+		return "Success!";
+	}
+	
+	return "Failure...";
+});
+
+Route::get('utils/updatesources', function() {
+	//$posts = ['http://stackoverflow.com/questions/3211411/how-can-i-get-the-base-domain-name-from-a-url-using-php-eg-google-com-from-ima', 'https://www.evernote.com/Home.action?__fp=suwWrJjEFtA3yWPvuidLz-TPR6I9Jhx8&username=joshquin%40gmail.com&login=true&_sourcePage=c4xb_dd2IGziMUD9T65RG_YvRLZ-1eYO3fqfqRu0fynRL_1nukNa4gH1t86pc1SP#b=945008e5-4166-4dba-a6fb-50eb4a88f1db&st=p&n=75d7a1af-a62c-44f1-94a5-970ff196420b', 'http://www.cnn.com/', 'http://wine.woot.com/plus/senders-wines?ref=cnt_wp_1', 'https://ide.c9.io/viciousambitious/feelrank'];
+	
+	$posts = Post::all();
+	
+	foreach ($posts as $post)
+	{
+		$urlMap = array('com', 'co.uk', 'co', 'io', 'org', 'net', 'gov', 'edu');
+
+		$host = "";
+		$url = urldecode($post->url);
+		
+		$urlData = parse_url($url);
+		$hostData = explode('.', $urlData['host']);
+		$hostData = array_reverse($hostData);
+		
+		if(array_search($hostData[1] . '.' . $hostData[0], $urlMap) !== FALSE) {
+		  $host = $hostData[2] . '.' . $hostData[1] . '.' . $hostData[0];
+		} elseif(array_search($hostData[0], $urlMap) !== FALSE) {
+		  $host = $hostData[1] . '.' . $hostData[0];
+		}
+		
+		$post->source = $host;
+		$post->save();
+	}
+	
+	return 'Successfully updated sources!';
+});
+
+Route::get('utils/convertsources', function() {
+	$posts = Post::all();
+	
+	foreach ($posts as $post)
+	{
+		$post_source = $post->source;
+		
+		$source = Source::where('name', '=', $post_source)->first();
+		
+		if ($source == null)
+		{
+			$source = new Source();
+			
+			$source->name = $post_source;
+			
+			$source->save();
+			
+			$post->source_id = $source->id;
+			
+			$post->save();
+		}
+		else
+		{
+			$post->source_id = $source->id;
+			
+			$post->save();
+		}
+	}
+	
+	return "Success!";
+});
+
+/*Route::get('utils/singlesource', function() {
+
+	$url = 'http://en.wikipedia.org/wiki/Thomas_Jefferson';
+	
+	$urlMap = array('com', 'co.uk', 'co', 'io', 'org', 'net', 'gov', 'edu');
+
+	$host = "";
+
+	$urlData = parse_url($url);
+	$hostData = explode('.', $urlData['host']);
+	$hostData = array_reverse($hostData);
+	
+	if(array_search($hostData[1] . '.' . $hostData[0], $urlMap) !== FALSE) {
+	  $host = $hostData[2] . '.' . $hostData[1] . '.' . $hostData[0];
+	} elseif(array_search($hostData[0], $urlMap) !== FALSE) {
+	  $host = $hostData[1] . '.' . $hostData[0];
+	}
+		
+	return $host;
 });*/

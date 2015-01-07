@@ -2,10 +2,12 @@
 
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
+use Zizaco\Entrust\HasRole;
 
 class User extends Eloquent implements ConfideUserInterface
 {
     use ConfideUser;
+    use HasRole;
 
     // Created by User
 
@@ -44,5 +46,17 @@ class User extends Eloquent implements ConfideUserInterface
     public function followedDiscussions()
     {
         return $this->belongsToMany('Discussion');
+    }
+    
+    // Owned by User
+    
+    public function ownedPosts()
+    {
+        return $this->belongsToMany('Post', 'ownedpost_user', 'post_id', 'user_id');
+    }
+    
+    public function ownedSources()
+    {
+        return $this->belongsToMany('Source');
     }
 }

@@ -21,14 +21,23 @@ class PostsController extends BaseController {
 
 	public function create()
 	{
-		return View::make('sites.create');
+		return View::make('posts.create');
 	}
 
 	public function store()
 	{
+		// Extract out--corrects for lack of http, which throws a validation error.
+		
+		$input = Input::all();
+		
+		if (substr($input['url'], 0, 7) !== "http://")
+		{
+			$input['url'] = 'http://' . $input['url'];
+		}
+		
 		try
 		{
-			$post = $this->PostService->create(Input::all());
+			$post = $this->PostService->create($input);
 		}
 		catch (FeelRank\Validators\ValidationException $e)
 		{
@@ -37,7 +46,26 @@ class PostsController extends BaseController {
 
 		$this->TagRepository->create(Input::get('tags'), $post);
 
-		return Redirect::to('posts/' . $post->id);
+		return View::make('posts.partials.create2', compact('post'));
+	}
+	
+	public function store2()
+	{
+		$input = Input::all();
+		
+		$post = Post::find($input['post_id']);
+		
+		if (Input::has('title'))
+		{
+			$this->DiscussionService->create($input);
+		}
+		
+		if (Input::has('tags'))
+		{
+			$this->TagRepository->create($input['tags'], $post);
+		}
+		
+		return Redirect::to('/posts/' . $post->id);
 	}
 
 	public function fetch()
@@ -81,7 +109,17 @@ class PostsController extends BaseController {
 
 		$original_rank = $post_rank;
 
-		return View::make('posts.show', compact('post', 'post_history', 'post_rank', 'original_rank'));
+		$owned = false;
+
+		if (Auth::check())
+		{
+			if (Auth::user()->ownedSources()->where('id', '=', $post->source()->first()->id)->first())
+			{
+				$owned = true;
+			}
+		}
+
+		return View::make('posts.show', compact('post', 'post_history', 'post_rank', 'original_rank', 'owned'));
 	}
 
 	// Sorting
@@ -183,4 +221,40 @@ class PostsController extends BaseController {
 
 		return '<span id="follow-post-' . $post->id . '"><a href="#" class="btn btn-default btn-xs" ic-src="/tags/' . $post->id . '/follow" ic-trigger-on="click" ic-target="#follow-post-' . $post->id . '"><i class="fa fa-binoculars"></i>&nbsp;&nbsp;Follow</a></span>';
 	}
-}	
+	
+	public function claim($id)
+	{
+		// Probably should be extracted
+		
+		$user = Auth::user();
+		
+		$source = Post::find($id)->source()->first();
+		
+		$domain = $source->name;
+		
+		try
+		{
+			$key = file_get_contents('http://' . $domain . '/feelrank.txt');
+		}
+		catch (Exception $e)
+		{
+			return View::make('ownership.error');
+		}
+		
+		if ($source->users != null)
+		{
+			return View::make('ownership.ownederror');
+		}
+		
+		if ($key === Auth::user()->confirmation_code)
+		{
+			$user->ownedSources()->attach($source);
+			
+			$user->attachRole(1);
+			
+			return View::make('ownership.confirmed');
+		}
+		
+		return View::make('ownership.error');
+	}
+}

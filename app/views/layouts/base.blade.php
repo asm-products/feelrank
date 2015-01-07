@@ -156,20 +156,20 @@
 
     @if ($messages = Session::get('messages'))
       @for ($i = 0; $i < count($messages); $i++)
-        <div class="alert alert-success">{{ $messages[$i] }}</div>
+        <div class="alert alert-success main-alert">{{ $messages[$i] }}</div>
       @endfor
     @endif
 
     @if ($notice = Session::get('notice'))
-      <div class="alert alert-success">{{ $notice }}</div>
+      <div class="alert alert-success main-alert">{{ $notice }}</div>
     @endif
 
     @if (count($errors))
-      <div class="alert alert-danger">{{ $errors->first() }}</div>
+      <div class="alert alert-danger main-alert">{{ $errors->first() }}</div>
     @endif
 
     @if (Session::get('error'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger main-alert">
             @if (is_array(Session::get('error')))
                 {{ head(Session::get('error')) }}
             @else
@@ -249,6 +249,8 @@
   </div><!--end wrapper-->
   
   @include('modals.login')
+  
+  @yield('more_modals')
 
     {{-- HTML::script('http://code.jquery.com/jquery-1.11.1.min.js') --}}
     {{ HTML::script('js/jquery-1.10.2.min.js') }}

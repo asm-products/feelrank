@@ -94,7 +94,7 @@ a:hover {
 	box-shadow: none;
 }
 
-.alert {
+.main-alert {
 	width: 100%;
 	position: absolute;
 	top: 70px;
