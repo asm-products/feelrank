@@ -3,6 +3,7 @@
 use DB;
 use Post;
 use Tag;
+use Source;
 use \Auth;
 use \FeelRank\Services\Url64Service;
 use \FeelRank\Services\SourceExtractionService;
@@ -68,16 +69,35 @@ class PostRepository {
 	{
 		$post = new Post();
 
+		// Consider moving this to PostsController
+
 		$url = $input['url'];
 		$id = $this->Url64Service->urlTo64BitHash($url);
 
 		$post->id = $id;
 		$post->url = urlencode($url);
 		$post->title = $this->TitleService->getTitle($url);
-		$post->source = $this->SourceExtractionService->getSource($url);
-		$post->description = '';
-		$post->thumbnail = '';
-
+		
+		// Source Handling--Refactor!
+		
+		$extracted_source = $this->SourceExtractionService->getSource($url);
+		$source = Source::where('name', '=', $extracted_source)->first();
+		
+		if ($source == null)
+		{
+			$source = new Source();
+			
+			$source->name = $extracted_source;
+			
+			$source->save();
+			
+			$post->source_id = $source->id;
+		}
+		else
+		{
+			$post->source_id = $source->id;
+		}
+		
 		$this->ThumbnailService->getThumbnail($url, $id);
 
 		Auth::user()->posts()->save($post);

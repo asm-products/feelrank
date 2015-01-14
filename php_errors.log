@@ -43,3 +43,9 @@
 [05-Jan-2015 03:09:19 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236
 [05-Jan-2015 03:09:47 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236
 [05-Jan-2015 03:10:41 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::attach() in /home/ubuntu/workspace/app/controllers/PostsController.php on line 236
+[12-Jan-2015 05:41:26 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
+[12-Jan-2015 18:02:45 UTC] PHP Fatal error:  Class 'FeelRank\Services\Htmldom' not found in /home/ubuntu/workspace/app/lib/FeelRank/Services/TitleService.php on line 7
+[12-Jan-2015 18:36:59 UTC] PHP Fatal error:  Call to a member function saveHTML() on a non-object in /home/ubuntu/workspace/app/lib/FeelRank/Services/TitleService.php on line 23
+[12-Jan-2015 20:07:17 UTC] PHP Fatal error:  Class 'Yangqi\Htmldom\HtmldomServiceProvider' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 157
+[14-Jan-2015 19:31:14 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
+[14-Jan-2015 19:31:27 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83

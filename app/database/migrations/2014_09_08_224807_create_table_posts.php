@@ -17,7 +17,7 @@ class CreateTablePosts extends Migration {
 			$table->bigInteger('id')->primary();
 			$table->string('url');
 			$table->string('title');
-			$table->string('description')->nullable;
+			$table->string('description')->nullable();
 			$table->string('source');
 			$table->string('thumbnail')->nullable();
 			$table->integer('user_id')->unsigned();

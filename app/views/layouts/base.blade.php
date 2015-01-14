@@ -80,6 +80,8 @@
 
           <a href="/users/login" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Login</a>
 
+          <!--Commented out for closed beta. Once public, non-authenticated users will be able to view posts.-->
+
           <!--<ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
             <li><a href="/tags/search">Tags</a></li>
             <li class="dropdown">
@@ -108,6 +110,9 @@
         @else
 
           <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
+            @if (Auth::user()->hasRole('Owner'))
+              <li><a href="/owned">Owned</a></li>
+            @endif
             <li><a href="/tags">Tags</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
@@ -185,6 +190,7 @@
 
       <div id="panel-nav-content" class="panel-slide panel-nav">
         <ul>
+          <!--Commented out for closed beta. Once public, non-authenticated users will be able to view posts.-->
           @if (Auth::check())
             <!--<li><a href="/tags">Tags</a></li>-->
           @else

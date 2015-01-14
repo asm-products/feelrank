@@ -6,7 +6,6 @@ use FeelRank\Services\PostService;
 use FeelRank\Repositories\PostRepository;
 use FeelRank\Repositories\TagRepository;
 
-use FeelRank\Validators\FetchValidator;
 use FeelRank\Validators\PostValidator;
 
 class PostsController extends BaseController {
@@ -66,31 +65,6 @@ class PostsController extends BaseController {
 		}
 		
 		return Redirect::to('/posts/' . $post->id);
-	}
-
-	public function fetch()
-	{
-		$input = Input::all();
-
-		if (substr($input['url'], 0, 7) !== "http://")
-		{
-			$input['url'] = 'http://' . $input['url'];
-		}
-
-		try
-		{
-			$url_info = $this->PostService->fetch($input);
-		}
-		catch (FeelRank\Validators\ValidationException $e)
-		{
-			return Redirect::back()->withInput()->withErrors($e->getErrors());
-		}
-		catch (Guzzle\Http\Exception\ClientErrorResponseException $e)
-		{
-			return Redirect::back()->withInput()->withErrors($e->getMessage());
-		}
-
-		return View::make('posts.fetch', compact('url_info'));
 	}
 
 	public function show($id)

@@ -1,16 +1,14 @@
 <?php namespace FeelRank\Services;
 
 use \FeelRank\Repositories\PostRepository;
-use \FeelRank\Validators\FetchValidator;
 use \FeelRank\Validators\PostValidator;
 use \FeelRank\Connectors\EmbedlyConnector;
 
 class PostService {
 	
-	public function __construct(PostRepository $postRepository, FetchValidator $fetchValidator, PostValidator $postValidator, EmbedlyConnector $embedlyConnector)
+	public function __construct(PostRepository $postRepository, PostValidator $postValidator, EmbedlyConnector $embedlyConnector)
 	{
 		$this->PostRepository = $postRepository;
-		$this->FetchValidator = $fetchValidator;
 		$this->PostValidator = $postValidator;
 		$this->EmbedlyConnector = $embedlyConnector;
 	}
