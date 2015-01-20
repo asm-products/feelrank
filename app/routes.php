@@ -131,7 +131,7 @@ Route::get('owned', function() {
 
 // UTILITY
 
-Route::get('utils/transformtags', function() {
+/*Route::get('utils/transformtags', function() {
 	$tags = Tag::all();
 	
     $symbols = ["+",",",".","'","\"","&","!","?",":",";","#","~","=","/","$","£","^","(",")","_","<",">","*","@","%","[","]","{","}","|","-"];
@@ -148,7 +148,7 @@ Route::get('utils/transformtags', function() {
 	return 'Success!';
 });
 
-/*Route::get('utils/getthumbnails', function() {
+Route::get('utils/getthumbnails', function() {
 	$posts = Post::all();
 	
 	$corrector = new FeelRank\Connectors\UrlboxConnector;
