@@ -6,7 +6,7 @@ class Source extends Eloquent
 
     public function posts()
     {
-        return $this->belongsToMany('Post');
+        return $this->hasMany('Post');
     }
     
     public function users()

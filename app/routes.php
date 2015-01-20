@@ -121,7 +121,32 @@ Route::get('comments/{id}/ranks/down', ['uses' => 'RanksController@downrank_comm
 Route::get('discussions/{discussion_id}/comments/{comment_id}/create', ['uses' => 'CommentsController@create_reply']);
 Route::post('discussions/{discussion_id}/comments/{comment_id}/store', ['uses' => 'CommentsController@store_reply']);
 
+// Owner Dashboard
+Route::get('owned', function() {
+	$source = Auth::user()->ownedSources->first();
+	$posts = $source->posts;
+	
+	return View::make('ownership.dashboard', compact('source', 'posts'));
+});
+
 // UTILITY
+
+Route::get('utils/transformtags', function() {
+	$tags = Tag::all();
+	
+    $symbols = ["+",",",".","'","\"","&","!","?",":",";","#","~","=","/","$","£","^","(",")","_","<",">","*","@","%","[","]","{","}","|","-"];
+	
+	foreach ($tags as $tag)
+	{
+		$tag_name = $tag->name;
+		
+		$tag->name = str_replace($symbols, '', str_replace(' ', '', strtolower($tag_name)));
+		
+		$tag->save();
+	}
+	
+	return 'Success!';
+});
 
 /*Route::get('utils/getthumbnails', function() {
 	$posts = Post::all();

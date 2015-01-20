@@ -8,9 +8,10 @@
       <div class="modal-body">
         
         {{ Form::open(['url' => '/tags/add', 'method' => 'post']) }}
+        
             <div class="form-group">
               {{ Form::label('tags', 'Tags (Separate with Commas)') }}
-              {{ Form::text('tags', '', ['class' => 'form-control', 'id' => 'tags']) }}
+              {{ Form::text('tags', '', ['class' => 'form-control center-block', 'id' => 'tags']) }}
             </div>
         
           {{ Form::hidden('post_id') }}

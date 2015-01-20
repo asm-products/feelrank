@@ -34,7 +34,9 @@
 {{ HTML::script('js/jquery.tagsinput.min.js') }}
 
 <script>
-  $('#tags').tagsInput();
+  $('#tags').tagsinput({
+    confirmKeys: [13, 32]
+  });
   
   $(document).ready(function() {
     $('#create-discussion').click(function() {

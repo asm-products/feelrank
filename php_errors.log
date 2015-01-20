@@ -49,3 +49,4 @@
 [12-Jan-2015 20:07:17 UTC] PHP Fatal error:  Class 'Yangqi\Htmldom\HtmldomServiceProvider' not found in /home/ubuntu/workspace/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 157
 [14-Jan-2015 19:31:14 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
 [14-Jan-2015 19:31:27 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
+[20-Jan-2015 03:59:07 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\DB' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/TagRepository.php on line 35

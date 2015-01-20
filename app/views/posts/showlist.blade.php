@@ -32,10 +32,22 @@
 @stop
 
 @section('more_js')
-  {{ HTML::script('js/jquery.tagsinput.min.js') }}
+  {{ HTML::script('js/bootstrap-tagsinput.min.js') }}
   
   <script>
-    $('#tags').tagsInput();
+    $('#tags').tagsinput({
+      confirmKeys: [13, 32]
+    });
+    
+    var item;
+    
+    $('#tags').tagsinput('add', item);
+    
+    $('#tags').on('beforeItemAdd', function(e) {
+      e.item = e.item.toLowerCase().replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/#]/, '');
+      
+      console.log(e.item);
+    }).tagsinput('refresh');
   </script>
   
   <script>

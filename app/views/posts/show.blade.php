@@ -121,10 +121,12 @@
 @stop
 
 @section('more_js')
-  {{ HTML::script('js/jquery.tagsinput.min.js') }}
+  {{ HTML::script('js/bootstrap-tagsinput.min.js') }}
   
   <script>
-    $('#tags').tagsInput();
+    $('#tags').tagsinput({
+      confirmKeys: [13, 32]
+    });
   </script>
   
   <script>

@@ -90,14 +90,10 @@ class PostRepository {
 			$source->name = $extracted_source;
 			
 			$source->save();
-			
-			$post->source_id = $source->id;
-		}
-		else
-		{
-			$post->source_id = $source->id;
 		}
 		
+		$post->source_id = $source->id;
+
 		$this->ThumbnailService->getThumbnail($url, $id);
 
 		Auth::user()->posts()->save($post);

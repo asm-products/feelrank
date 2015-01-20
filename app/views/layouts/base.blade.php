@@ -11,7 +11,7 @@
     <title>FeelRank (Beta) - Let The Internet Know How You Feel</title>
 
     {{ HTML::style('css/bootstrap.css') }}
-    {{ HTML::style('css/jquery.tagsinput.css') }}
+    {{ HTML::style('css/bootstrap-tagsinput.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/feelrank.css') }}
     {{ HTML::style('css/feelrank-card.css') }}

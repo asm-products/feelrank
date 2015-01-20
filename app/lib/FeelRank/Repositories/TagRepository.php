@@ -1,9 +1,16 @@
 <?php namespace FeelRank\Repositories;
 
 use Tag;
+use \DB;
 use \Auth;
+use \FeelRank\Transformers\TagTransformer;
 
 class TagRepository {
+	
+	public function __construct(TagTransformer $tagTransformer)
+	{
+		$this->TagTransformer = $tagTransformer;
+	}
 	
 	public function create($input, $post)
 	{
@@ -11,11 +18,29 @@ class TagRepository {
 
 		for($i = 0; $i < count($tags); $i++)
 		{
-			$tag = new Tag();
-
-			$tag->name = $tags[$i];
+			$tags[$i] = $this->TagTransformer->transform($tags[$i]);
 			
-			$post->tags()->save($tag);			
+			$tag = Tag::where('name', '=', $tags[$i])->first();
+			
+			if ($tag == null)
+			{
+				$tag = new Tag();
+	
+				$tag->name = $tags[$i];
+				
+				$tag->save();
+				
+				$post->tags()->save($tag);
+			}
+			
+			$has_tag = DB::table('taggables')->whereTagId($tag->id)->whereTaggableId($post->id)->count() > 0;
+			
+			if ($has_tag)
+			{
+				continue;
+			}
+			
+			$post->tags()->save($tag);
 		}
 
 		return true;
