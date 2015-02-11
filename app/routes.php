@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-Route::get('/home', function()
+Route::get('home', function()
 {
 	$user = Auth::user();
 
@@ -27,6 +27,11 @@ Route::get('/home', function()
 	$discussions = $user->followedDiscussions;
 
 	return View::make('dashboard', compact('tags', 'posts', 'discussions'));
+});
+
+Route::get('about', function()
+{
+	return View::make('about');	
 });
 
 // Beta Signup
@@ -44,20 +49,12 @@ Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
-// Sites
-/*Route::group(['prefix' => 'sites'], function()
-{
-	Route::get('create', 'SitesController@create');	
-	Route::post('create', 'SitesController@store');	
-	Route::post('create2', 'SitesController@store2');
-	Route::get('list', 'SitesController@show');
-});*/
-
 // User edit profile
 Route::get('users/update', 'UsersController@update');
 Route::post('users/update', 'UsersController@doUpdate');
 
 // Posts
+Route::get('posts/{id}/rankhistory', ['uses' => 'PostsController@rankHistory']);
 Route::post('posts/fetch', ['uses' => 'PostsController@fetch']);
 Route::get('posts/mostrank', ['uses' => 'PostsController@mostRank']);
 Route::get('posts/leastrank', ['uses' => 'PostsController@leastRank']);
@@ -90,7 +87,7 @@ Route::post('tags/add', ['uses' => 'TagsController@addTags']);
 Route::get('tags', ['uses' => 'TagsController@taggedPosts']);
 
 // Post History
-Route::get('posts/{id}/history', ['uses' => 'PostsController@get_history']);
+// Route::get('posts/{id}/history', ['uses' => 'PostsController@get_history']);
 
 // Upranks
 Route::get('/{id}/upranks/store', ['uses' => 'UpranksController@store']);
@@ -126,7 +123,23 @@ Route::get('owned', function() {
 	$source = Auth::user()->ownedSources->first();
 	$posts = $source->posts;
 	
-	return View::make('ownership.dashboard', compact('source', 'posts'));
+	$user_ids = [1];
+	
+	$also_upranked = Rank::whereIn('user_id', $user_ids)->where('vote', '=', 1)->get();
+	
+	$also_downranked = Rank::whereIn('user_id', $user_ids)->where('vote', '=', -1)->get();
+	
+	$current_post_id = $posts[0]->id;
+	
+	$detractors = User::leftJoin('ranks', 'users.id', '=', 'ranks.user_id')->where('ranks.vote', '=', -1)->where('user_id', '=', $user_ids)->where('ranks.rankable_id', '=', $posts[0]->id)->get()->sortBy(function($user) {
+		$user->comments()->count();
+	});
+	
+	$advocates = User::leftJoin('ranks', 'users.id', '=', 'ranks.user_id')->where('ranks.vote', '=', 1)->where('user_id', '=', $user_ids)->where('ranks.rankable_id', '=', $posts[0]->id)->get()->sortBy(function($user) {
+		$user->comments()->count();
+	});
+	
+	return View::make('ownership.dashboard', compact('source', 'posts', 'also_upranked', 'also_downranked', 'advocates', 'detractors'));
 });
 
 // UTILITY

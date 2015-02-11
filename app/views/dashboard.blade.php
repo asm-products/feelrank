@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+{{ Auth::user()->username }}'s FeelRank
+@stop
+
 @section('body')
   <div class="container container-content">
 

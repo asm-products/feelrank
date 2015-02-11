@@ -50,3 +50,17 @@
 [14-Jan-2015 19:31:14 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
 [14-Jan-2015 19:31:27 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\Source' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/PostRepository.php on line 83
 [20-Jan-2015 03:59:07 UTC] PHP Fatal error:  Class 'FeelRank\Repositories\DB' not found in /home/ubuntu/workspace/app/lib/FeelRank/Repositories/TagRepository.php on line 35
+[21-Jan-2015 03:09:13 UTC] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/ubuntu/workspace/app/routes.php on line 128
+[21-Jan-2015 03:10:28 UTC] PHP Fatal error:  Call to a member function sum() on a non-object in /home/ubuntu/workspace/app/routes.php on line 129
+[21-Jan-2015 03:10:41 UTC] PHP Fatal error:  Unsupported operand types in /home/ubuntu/workspace/app/storage/views/4b97204bfadb6f58754d1adbcf1a814d on line 100
+[28-Jan-2015 18:20:43 UTC] PHP Parse error:  syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/ubuntu/workspace/app/routes.php on line 135
+[28-Jan-2015 18:27:38 UTC] PHP Parse error:  syntax error, unexpected 'in' (T_STRING) in /home/ubuntu/workspace/app/storage/views/4b97204bfadb6f58754d1adbcf1a814d on line 92
+[28-Jan-2015 20:12:05 UTC] PHP Fatal error:  Call to a member function count() on a non-object in /home/ubuntu/workspace/app/routes.php on line 142
+[28-Jan-2015 21:21:29 UTC] PHP Parse error:  syntax error, unexpected '[', expecting '&' or variable (T_VARIABLE) in /home/ubuntu/workspace/app/routes.php on line 143
+[28-Jan-2015 21:26:55 UTC] PHP Parse error:  syntax error, unexpected '@', expecting '&' or variable (T_VARIABLE) in /home/ubuntu/workspace/app/routes.php on line 143
+[29-Jan-2015 02:21:04 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::comments() in /home/ubuntu/workspace/app/routes.php on line 144
+[29-Jan-2015 02:40:46 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::with() in /home/ubuntu/workspace/app/routes.php on line 155
+[29-Jan-2015 02:41:37 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::with() in /home/ubuntu/workspace/app/routes.php on line 155
+[29-Jan-2015 03:01:05 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Query\JoinClause::whereIn() in /home/ubuntu/workspace/app/routes.php on line 167
+[05-Feb-2015 16:48:05 UTC] PHP Fatal error:  Call to a member function hasRole() on a non-object in /home/ubuntu/workspace/app/storage/views/23d22fa3ff64f7b5487b3e1c6c98d7ee on line 12
+[11-Feb-2015 02:54:05 UTC] PHP Fatal error:  Call to a member function hasRole() on a non-object in /home/ubuntu/workspace/app/storage/views/23d22fa3ff64f7b5487b3e1c6c98d7ee on line 12

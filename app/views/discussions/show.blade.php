@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+{{ $discussion->title }}
+@stop
+
 @section('body')
 <div class="container container-content">
   <div class="row row-post">

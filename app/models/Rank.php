@@ -16,4 +16,14 @@ class Rank extends Eloquent
 	{
 		return $query->where('user_id', '=', $user_id);
 	}
+	
+	public function scopeUpranks($query)
+	{
+		return $query->where('vote', '=', 1);
+	}
+	
+	public function scopeDownranks($query)
+	{
+		return $query->where('vote', '=', -1);
+	}
 }

@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+Post a New Link
+@stop
+
 @section('body')
   <div id="create-site-container" class="container container-content">
     <div class="row">

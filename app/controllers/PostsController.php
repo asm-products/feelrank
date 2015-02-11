@@ -231,4 +231,33 @@ class PostsController extends BaseController {
 		
 		return View::make('ownership.error');
 	}
+	
+	// Stats
+	
+	public function rankHistory($id)
+	{
+		$post = Post::find($id);
+		
+		$post_ranks = $post->ranks->take(20);
+		
+		$current_rank = $post->ranks->sum('vote');
+		
+		$rank_history = [$current_rank];
+		
+		foreach ($post_ranks as $rank)
+		{
+			$current_rank = $current_rank - $rank->vote;
+			
+			array_push($rank_history, $current_rank);
+		}
+		
+		return Response::json(['Rank' => array_reverse($rank_history)]);
+	}
+	
+	public function usersAlsoUpranked($ids)
+	{
+		$posts = User::find($ids)->ranks()->where('vote', '=', 1)->rankable()->get();
+		
+		return $posts;
+	}
 }

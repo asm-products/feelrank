@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+{{ $qTag->name }} - Posts
+@stop
+
 @section('body')
   <div class="container container-content">
 
@@ -27,7 +31,9 @@
 
       @if (count($posts) > 0)
         @foreach ($posts as $post)
-          @include ('posts.post')
+          <div class="col-sm-12 col-md-6 col-lg-4 col-card">
+            @include ('posts.post')
+          </div>
         @endforeach
       @else
         <div class="col-xs-12">

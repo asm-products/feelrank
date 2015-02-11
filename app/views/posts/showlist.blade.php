@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+Posts ({{ $sort }})
+@stop
+
 @section('body')
   <div class="container container-content">
 

@@ -8,13 +8,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>FeelRank (Beta) - Let The Internet Know How You Feel</title>
+    <title>FeelRank (Beta) - @yield('title')</title>
 
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-tagsinput.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/feelrank.css') }}
     {{ HTML::style('css/feelrank-card.css') }}
+    {{ HTML::style('css/c3.min.css') }}
 
     <style>
       #loading-icon {
@@ -49,115 +50,13 @@
 
       ga('create', 'UA-56442823-2', 'auto');
       ga('send', 'pageview');
-
     </script>
   </head>
 
   <body>
     <div id="site-wrapper">
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-
-        <div class="navbar-header">
-          @if (Auth::check())
-            <a class="navbar-brand" href="/home">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}<span class="badge badge-beta">beta</span></a>
-          @else
-            <a class="navbar-brand" href="/">{{ HTML::image('img/feelrank-logo-white.png', 'FeelRank') }}<span class="badge badge-beta">beta</span></a>
-          @endif
-        </div>
-        
-        <button type="button" id="toggle-panel-nav" class="btn btn-default navbar-btn pull-right visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
-        
-        @if (Auth::check())
-
-          <button type="button" id="toggle-panel-profile" class="btn btn-default navbar-btn pull-left visible-xs visible-sm hidden-md hidden-lg"><i class="fa fa-user"></i></button>
-
-        @endif
-
-        @if (!Auth::check())
-
-          <a href="/users/login" class="btn btn-default btn-signup navbar-btn pull-right hidden-xs hidden-sm visible-md visible-lg">Login</a>
-
-          <!--Commented out for closed beta. Once public, non-authenticated users will be able to view posts.-->
-
-          <!--<ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
-            <li><a href="/tags/search">Tags</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/posts/mostrecent">Recent</a></li>
-                <li><a href="/posts/mostrank">Rank</a></li>
-                <li><a href="/posts/mostdiscussions">Discussions</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Least <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/posts/leastrecent">Recent</a></li>
-                <li><a href="/posts/leastrank">Rank</a></li>
-                <li><a href="/posts/leastdiscussions">Discussions</a></li>
-              </ul>
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="/users/login">Login</a></li>
-          </ul>-->
-
-        @else
-
-          <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm visible-md visible-lg">
-            @if (Auth::user()->hasRole('Owner'))
-              <li><a href="/owned">Owned</a></li>
-            @endif
-            <li><a href="/tags">Tags</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/posts/mostrecent">Recent</a></li>
-                <li><a href="/posts/mostrank">Rank</a></li>
-                <li><a href="/posts/mostdiscussions">Discussions</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Least <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/posts/leastrecent">Recent</a></li>
-                <li><a href="/posts/leastrank">Rank</a></li>
-                <li><a href="/posts/leastdiscussions">Discussions</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">My <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/users/{{ Auth::user()->id }}/posts">Posts</a></li>
-                <li><a href="/users/{{ Auth::user()->id }}/discussions">Discussions</a></li>
-                <li><a href="/users/{{ Auth::user()->id }}/comments">Comments</a></li>
-                <li><a href="/users/{{ Auth::user()->id }}/upranks">Upranks</a></li>
-                <li><a href="/users/{{ Auth::user()->id }}/downranks">Downranks</a></li>
-              </ul>
-            </li>
-            <li><a href="/posts/create">Post</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->username }} <span class="caret"></span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/users/update">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-
-        @endif
-
-      </div>
-    </div><!--/.navbar-->
+    @yield('nav', \View::make('navs.app'))
 
     @if ($messages = Session::get('messages'))
       @for ($i = 0; $i < count($messages); $i++)

@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+{{ Auth::user()->username }} - Tags
+@stop
+
 @section('body')
   <div class="container container-content">
 
