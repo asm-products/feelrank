@@ -43,6 +43,39 @@
       .nav-floating li a:focus {
         background: transparent;
       }
+      
+      .nav-mobile {
+        position: fixed;
+        z-index: 9999;
+        right: -320px;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        background: #333;
+        color: #fff;
+        -webkit-box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+        -moz-box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+        box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+      }
+      
+      .nav-mobile ul {
+        padding-left: 0;
+        list-style-type: none;
+      }
+      
+      .nav-mobile ul li {
+        padding: 15px;
+        border-bottom: 1px solid #999;
+      }
+      
+      .nav-mobile ul a {
+        color: #fff;
+      }
+      
+      .nav-mobile ul a:hover {
+        color: #ddd;
+        text-decoration: none;
+      }
 
       .jumbotron-home {
         height: 600px;
@@ -169,11 +202,21 @@
     <![endif]-->
   </head>
   <body>
+    <nav class="nav-mobile">
+      <ul>
+        <a id="nav-mobile-close" href="#"><li class="text-right"><i class="fa fa-close"></i></li></a>
+        <a href="/"><li>Product</li></a>
+        <a href="/about"><li>Company</li></a>
+        <a href="/users/login"><li>Login</li></a>
+      </ul>
+    </nav>
+    
     <nav class="nav-floating">
       <ul class="nav nav-pills pull-right">
-        <li><a href="/">Product</a></li>
-        <li><a href="/about">Company</a></li>
-        <li><a class="btn btn-outline-white" href="/users/login">Login</a></li>
+        <li class="hidden-xs"><a href="/">Product</a></li>
+        <li class="hidden-xs"><a href="/about">Company</a></li>
+        <li class="hidden-xs"><a class="btn btn-outline-white" href="/users/login">Login</a></li>
+        <li class="visible-xs"><a id="nav-mobile-open" class="btn btn-outline-white" href="#"><i class="fa fa-bars"></i></a></li>
       </ul>
     </nav>
 
@@ -358,13 +401,34 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/fastclick.js"></script>
     <script>
-  		$('#learn-more').click(function(){
-  		    $('html, body').animate({
-  		        scrollTop: 600
-  		    }, 500);
-  		    return false;
-  		});
+      $(function() {
+        FastClick.attach(document.body);
+  
+    		$('#learn-more').click(function(){
+    		    $('html, body').animate({
+    		        scrollTop: 600
+    		    }, 500);
+    		    return false;
+    		});
+    		
+    		$('#nav-mobile-open').click(function(e) {
+    		  e.preventDefault();
+    		  
+    		  $('.nav-mobile').animate({
+    		    right: '0'
+    		  }, 200);
+    		});
+    		
+    		$('#nav-mobile-close').click(function(e) {
+    		  e.preventDefault();
+    		  
+    		  $('.nav-mobile').animate({
+    		    right: '-320px'
+    		  }, 200);
+    		});
+      });
     </script>
   </body>
 </html>

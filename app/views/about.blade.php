@@ -43,6 +43,39 @@
       .nav-floating li a:focus {
         background: transparent;
       }
+      
+      .nav-mobile {
+        position: fixed;
+        z-index: 9999;
+        right: -320px;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        background: #333;
+        color: #fff;
+        -webkit-box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+        -moz-box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+        box-shadow: 20px 0 20px 20px rgba(0,0,0,.4);
+      }
+      
+      .nav-mobile ul {
+        padding-left: 0;
+        list-style-type: none;
+      }
+      
+      .nav-mobile ul li {
+        padding: 15px;
+        border-bottom: 1px solid #999;
+      }
+      
+      .nav-mobile ul a {
+        color: #fff;
+      }
+      
+      .nav-mobile ul a:hover {
+        color: #ddd;
+        text-decoration: none;
+      }
 
       .jumbotron-about {
         height: 120px;
@@ -61,7 +94,7 @@
       .jumbotron-about .container-fluid img {
         float: left;
         height: 80px;
-        margin-top: -30px;
+        margin-top: -28px;
       }
 
       .row-orange {
@@ -193,6 +226,22 @@
         .container-contact {
           max-width: 100%;
         }
+        
+        .img-xs-bottom-margin {
+          margin-bottom: 80px;
+        }
+        
+        .jumbotron-about .container-fluid img {
+          float: left;
+          height: 80px;
+          margin-top: -10px;
+        }
+        
+        .row-detroit h1 {
+          padding-left: 15px;
+          padding-right: 15px;
+          font-size: 30px;
+        }
       }
     </style>
 
@@ -202,11 +251,21 @@
     <![endif]-->
   </head>
   <body>
+    <nav class="nav-mobile">
+      <ul>
+        <a id="nav-mobile-close" href="#"><li class="text-right"><i class="fa fa-close"></i></li></a>
+        <a href="/"><li>Product</li></a>
+        <a href="/about"><li>Company</li></a>
+        <a href="/users/login"><li>Login</li></a>
+      </ul>
+    </nav>
+    
     <nav class="nav-floating">
       <ul class="nav nav-pills pull-right">
-        <li><a href="/">Product</a></li>
-        <li><a href="/about">Company</a></li>
-        <li><a class="btn btn-outline-white" href="/users/login">Login</a></li>
+        <li class="hidden-xs"><a href="/">Product</a></li>
+        <li class="hidden-xs"><a href="/about">Company</a></li>
+        <li class="hidden-xs"><a class="btn btn-outline-white" href="/users/login">Login</a></li>
+        <li class="visible-xs"><a id="nav-mobile-open" class="btn btn-outline-white" href="#"><i class="fa fa-bars"></i></a></li>
       </ul>
     </nav>
 
@@ -229,7 +288,7 @@
       
       <div class="row">
         <div class="col-sm-5 col-sm-push-7">
-          <img class="img-responsive center-block" src="img/connected.jpg" alt="" />
+          <img class="img-responsive center-block img-xs-bottom-margin" src="img/connected.jpg" alt="" />
         </div>
         
         <div class="col-sm-1"></div>
@@ -237,26 +296,29 @@
         <div class="col-sm-6 col-sm-pull-6">
           <h1 style="margin-top: 0;">Why FeelRank?</h1>
           <p>FeelRank offers a platform for expressing your feelings about any topic that’s got a webpage. Post a link, share your feelings with a simple up or down ranking and tell the world why you feel that way through ever changing discussions. It’s both a fun and informative way to view people’s thoughts on any given topic. Follow the topics, posts and discussions that interest you. Page owners are given access to a post’s ranks over time, so they can see trend data and gain insight into how their favorite subjects, articles, companies—whatever, are perceived by others.</p>
-          <br />        
+          <br />
           <h2>Connecting The Web</h2>
           <p>We connect data with emotion: owners with visitors, pages with tags, tags with feelings. This gives the web a better feedback system, makes it more semantic and more easily explorable.</p>
         </div>
       </div>
       
-      <br /><br /><br />
-
-      <div class="row well">
-        <div class="col-sm-4">
-          <img class="img-responsive img-thumbnail center-block" src="img/josh.jpg" alt="" />
-        </div>
-        
-        <div class="col-sm-1"></div>
-        
-        <div class="col-sm-7">
-          <h1>Who's Running This Anyway?</h1>
-          <h4>Meet The Founder: Josh Quintal</h4>
-          <br /><br />
-          <p class="tall-lines">Programming from a young age, Josh started out making basic games and websites with friends in grade school, eventually returning to programming in college driven by entrepreneurial spirit and a desire for self-improvement. "I’m energetic, creative and passionate about how technology can improve our lives." When asked about what makes him uniquely qualified to run a business, Josh remarked "I specialize in making connections where others see none."</p>
+      <br /><br /><br /><br /><br /><br />
+      
+      <div class="well well-lg">
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="img-responsive img-thumbnail center-block" src="img/josh.jpg" alt="" />
+          </div>
+          
+          <div class="col-sm-1"></div>
+          
+          <div class="col-sm-7">
+            <br /><br />
+            <h1>Who's Running This Anyway?</h1>
+            <h4>Meet The Founder: Josh Quintal</h4>
+            <br />
+            <p class="tall-lines">Programming from a young age, Josh started out making basic games and websites with friends in grade school, eventually returning to programming in college driven by entrepreneurial spirit and a desire for self-improvement. "I’m energetic, creative and passionate about how technology can improve our lives." When asked about what makes him uniquely qualified to run a business, Josh remarked "I make connections where others see none."</p>
+          </div>
         </div>
       </div>
     </div>
@@ -284,13 +346,27 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/fastclick.js"></script>
     <script>
-  		$('#learn-more').click(function(){
-  		    $('html, body').animate({
-  		        scrollTop: 600
-  		    }, 500);
-  		    return false;
-  		});
+      $(function() {
+        FastClick.attach(document.body);
+  
+    		$('#nav-mobile-open').click(function(e) {
+    		  e.preventDefault();
+    		  
+    		  $('.nav-mobile').animate({
+    		    right: '0'
+    		  }, 200);
+    		});
+    		
+    		$('#nav-mobile-close').click(function(e) {
+    		  e.preventDefault();
+    		  
+    		  $('.nav-mobile').animate({
+    		    right: '-320px'
+    		  }, 200);
+    		});
+      });
     </script>
   </body>
 </html>
