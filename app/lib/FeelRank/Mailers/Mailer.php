@@ -9,7 +9,7 @@ abstract class Mailer {
 		Mail::send($view, $data, function($message) use($from, $user, $subject) {
 			
 			$message->from($from['email'], $from['name'])
-					->to($user)
+					->to($user->email)
 					->subject($subject);
 		});
 	}

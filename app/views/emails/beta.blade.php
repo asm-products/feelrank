@@ -2,7 +2,9 @@
 
 <h1 style="text-align: center;">FeelRank Beta</h1>
 
-<p style="text-align: center;">Thank you for signing up for our mailing list! We'll be in touch once the beta is open.</p>
+<p style="text-align: center;">Thank you for signing up for our beta list! We'll be in touch once it's ready.</p>
+
+<p style="text-align: center;">FeelRank will change how site users and site owners interact. I'm very excited to show you the final product and look forward to seeing you there!</p>
 
 <p style="text-align: center;">
     Thanks again,<br /><br />
