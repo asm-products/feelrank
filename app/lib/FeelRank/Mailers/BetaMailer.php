@@ -2,7 +2,7 @@
 
 class BetaMailer extends Mailer {
 	
-	public function sendTo(\Beta $user) {
+	public function sendTo($email) {
 		
 		$from = [
 			'name' => 'FeelRank',
@@ -11,7 +11,7 @@ class BetaMailer extends Mailer {
 		$view = 'emails.beta';
 		$subject = 'FeelRank Beta';
 		
-		return $this->send($from, $user, $subject, $view);
+		return $this->send($from, $email, $subject, $view);
 		
 	}
 }

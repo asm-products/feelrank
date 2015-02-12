@@ -144,6 +144,14 @@ Route::get('owned', function() {
 
 // UTILITY
 
+Route::get('utils/betaemail', function() {
+	$mailer = new \FeelRank\Mailers\BetaMailer;
+	
+	$mailer->sendTo('josh@zoyescreative.com');
+	
+	return 'Sent!';
+});
+
 /*Route::get('utils/transformtags', function() {
 	$tags = Tag::all();
 	

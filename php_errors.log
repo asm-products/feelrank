@@ -64,3 +64,6 @@
 [29-Jan-2015 03:01:05 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Query\JoinClause::whereIn() in /home/ubuntu/workspace/app/routes.php on line 167
 [05-Feb-2015 16:48:05 UTC] PHP Fatal error:  Call to a member function hasRole() on a non-object in /home/ubuntu/workspace/app/storage/views/23d22fa3ff64f7b5487b3e1c6c98d7ee on line 12
 [11-Feb-2015 02:54:05 UTC] PHP Fatal error:  Call to a member function hasRole() on a non-object in /home/ubuntu/workspace/app/storage/views/23d22fa3ff64f7b5487b3e1c6c98d7ee on line 12
+[12-Feb-2015 15:28:03 UTC] PHP Fatal error:  Call to undefined function feelrank\mailers\betamailer() in /home/ubuntu/workspace/app/routes.php on line 148
+[12-Feb-2015 15:28:17 UTC] PHP Fatal error:  Call to undefined function feelrank\mailers\betamailer() in /home/ubuntu/workspace/app/routes.php on line 148
+[12-Feb-2015 15:28:27 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/ubuntu/workspace/app/routes.php on line 148
