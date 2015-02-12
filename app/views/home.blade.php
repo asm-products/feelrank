@@ -347,7 +347,7 @@
       </div>
     </div>
 
-    <div class="container-fliud">
+    <div class="container-fluid">
       <div class="row row-orange">
         <div class="col-xs-12 text-center">
           <h1>Site Owners</h1>
