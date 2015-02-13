@@ -170,7 +170,8 @@
       .flipper .btn-success i, .flipper .btn-danger i {
       	font-size: 100px;
       	position: absolute;
-      	left: 10px;
+      	left: 50%;
+      	margin-left: -43px;
       	top: -17px;
       	opacity: .75;
       }
