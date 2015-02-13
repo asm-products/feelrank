@@ -317,7 +317,7 @@
             <h1>Who's Running This Anyway?</h1>
             <h4>Meet The Founder: Josh Quintal</h4>
             <br />
-            <p class="tall-lines">Programming from a young age, Josh started out making basic games and websites with friends in grade school, eventually returning to programming in college driven by entrepreneurial spirit and a desire for self-improvement. "I’m energetic, creative and passionate about how technology can improve our lives." When asked about what makes him uniquely qualified to run a business, Josh remarked "I make connections where others see none."</p>
+            <p class="tall-lines">Programming from a young age, Josh started out making basic games and websites with friends in grade school. Eventually he returned to programming in college, driven by entrepreneurial spirit and a desire for self-improvement. "I’m energetic, creative and passionate about how technology can improve our lives." When asked about what makes him uniquely qualified to run a business, Josh remarked "I make connections where others see none."</p>
           </div>
         </div>
       </div>
