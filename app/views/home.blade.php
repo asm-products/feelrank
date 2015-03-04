@@ -224,7 +224,7 @@
     <div class="jumbotron jumbotron-home text-center">
       <div class="container">
         <img src="img/feelrank-logo-white.png" alt="FeelRank" />
-        <h4>Share your feelings about anything with a link.</h4>
+        <h4>Discuss links. Discover more.</h4>
         <br />
         <a id="learn-more" href="#" class="btn btn-outline-white">Learn More</a>
       </div>
